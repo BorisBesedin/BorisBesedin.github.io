@@ -1,0 +1,151 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+	scroll-behavior: smooth;
+}
+a{
+	text-decoration: none;
+	font-size: 14px;
+	line-height: 14px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.container{
+	width: 90%;
+	margin: 0 auto;
+}
+.about_me{
+	padding: 160px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.photo{
+	border-radius: 50%;
+}
+.about_me h1{
+	padding: 5px;
+	margin-top: 50px;
+	margin-bottom: 25px;
+	font-size: 46px;
+	line-height: 46px;
+	background-color: #ddddf8;
+}
+.about_me p{
+	margin: 0;
+	font-size: 18px;
+	line-height: 18px;
+	color: rgba(0, 0, 0, 0.4);
+}
+.social{
+	margin: 0;
+	margin-top: 25px;
+	padding: 0;
+	display: flex;
+}
+.social li{
+	list-style: none;
+	margin-right: 10px;
+}
+.social_button{
+	display: block;
+	width: 50px;
+	height: 50px;
+}
+.social_button:hover{
+	opacity: 0.6;
+}
+.social_button:active{
+	opacity: 0.3;
+}
+.vk_button{
+	background-image: url(../img/icons8-вконтакте-50.png);
+}
+.git_button{
+	background-image: url(../img/icons8-github-50.png);
+}
+.portfolio_button{
+	position: relative;
+	margin-top: 30px;
+	font-size: 20px;
+	line-height: 20px;
+	text-transform: uppercase;
+	color: #000;
+	font-weight: bold;
+	border-bottom: 3px solid #000;
+}
+.portfolio_button:hover{
+	opacity: 0.6;
+}
+.portfolio_button:active{
+	opacity: 0.3;
+}
+.portfolio{
+	padding-top: 120px;
+	padding-bottom: 120px;
+	background-color: #000;
+}
+.portfolio h2{
+	margin: 0;
+	font-size: 46px;
+	line-height: 46px;
+	color: #fff;
+	text-transform: uppercase;
+}
+.project_list{
+	display: flex;
+	justify-content: space-between;
+	margin: 0;
+	margin-top: 60px;
+	padding: 0;
+}
+.project_item{
+	position: relative;
+	list-style: none;
+	width: 300px;
+}
+.project_item:hover{
+	transition-duration: 0.2s;
+	box-shadow: 0 0 50px 10px #ddddf8;
+}
+.project_item:hover .item_info{
+	visibility: visible;
+}
+.item_info{
+	visibility: hidden;
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	width: 260px;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 60px 20px;
+	background-color: #eee;
+}
+.item_info h3{
+	margin: 0;
+	font-size: 20px;
+	line-height: 20px;
+	text-transform: uppercase;
+}
+.item_info p{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 14px;
+	line-height: 14px;
+}
+.project_link{
+	display: block;
+	padding: 12px;
+	width: 160px;
+	background-color: #e74848;
+	color: #fff;
+	border-radius: 10px;
+}
+.project_link:hover{
+	background-color: #d74040;
+}
+.project_link:active{
+	background-color: #c92a2a;
+	color: rgba(255, 255, 255, 0.4);
+}
