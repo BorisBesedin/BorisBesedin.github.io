@@ -102,6 +102,7 @@ a{
 	position: relative;
 	list-style: none;
 	width: 300px;
+	margin-top: 20px;
 }
 .project_item:hover{
 	transition-duration: 0.2s;
@@ -148,4 +149,10 @@ a{
 .project_link:active{
 	background-color: #c92a2a;
 	color: rgba(255, 255, 255, 0.4);
+}
+@media screen and (max-width: 420px){
+	.project_list{
+		display: flex;
+		flex-direction: column;
+	}
 }
