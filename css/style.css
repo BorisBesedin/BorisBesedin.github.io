@@ -150,7 +150,7 @@ a{
 	background-color: #c92a2a;
 	color: rgba(255, 255, 255, 0.4);
 }
-@media screen and (max-width: 420px){
+@media screen and (max-width: 600px){
 	.project_list{
 		display: flex;
 		flex-direction: column;
