@@ -154,5 +154,9 @@ a{
 	.project_list{
 		display: flex;
 		flex-direction: column;
+		align-items: center;
+	}
+	.portfolio h2{
+		text-align: center;
 	}
 }
