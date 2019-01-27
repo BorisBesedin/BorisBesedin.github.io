@@ -164,4 +164,15 @@ a{
 	.portfolio h2{
 		text-align: center;
 	}
+	.about_me{
+	padding: 80px 0;
+	}
+	.about_me h1{
+	font-size: 30px;
+	line-height: 30px;
+	}
+	.portfolio{
+	padding-top: 60px;
+	padding-bottom: 60px;
+	}
 }
