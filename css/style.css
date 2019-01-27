@@ -12,6 +12,7 @@ a{
 }
 .container{
 	width: 90%;
+	max-width: 960px;
 	margin: 0 auto;
 }
 .about_me{
@@ -95,12 +96,14 @@ a{
 }
 .project_list{
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
+	flex-wrap: wrap;
 	margin: 0;
 	margin-top: 60px;
 	padding: 0;
 }
 .project_item{
+	margin-right: 20px;
 	position: relative;
 	list-style: none;
 	width: 300px;
