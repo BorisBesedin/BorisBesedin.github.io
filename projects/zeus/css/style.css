@@ -151,7 +151,6 @@ body{
 }
 .feature_item:last-child p{
 	color: #b4ba98;
-	line-height: 48px;
 	margin-bottom: 50px;
 }
 .feature_logo{
@@ -450,6 +449,9 @@ body{
 	.logo{
 		margin-top: 40px;
 	}
+	.page_header{
+		text-align: center;
+	}
 	.header_title{
 		margin-top: 40px;
 		font-size: 30px;
@@ -466,9 +468,6 @@ body{
 	}
 	.scroll_button{
 		margin-top: 50px;
-	}
-	.features_item_description{
-		line-height: 30px;
 	}
 	.feature_item{
 		padding: 30px 0;
@@ -533,5 +532,6 @@ body{
 	}
 	.features_item_description{
 		font-size: 18px;
+		line-height: 30px;
 	}
 }
