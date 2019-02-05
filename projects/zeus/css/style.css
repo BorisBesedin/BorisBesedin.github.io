@@ -108,6 +108,7 @@ body{
 	border-left: none;
 }
 .features{
+	overflow: hidden;
 	width: 100%;
 }
 .feature_item{
@@ -154,7 +155,6 @@ body{
 	margin-bottom: 50px;
 }
 .feature_logo{
-	overflow: hidden;
 	position: absolute;
 	top: -100px;
 	right: -300px;
