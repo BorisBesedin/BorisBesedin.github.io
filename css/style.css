@@ -181,6 +181,7 @@ a {
 }
 
 .item_info p {
+	width: 260px;
 	padding-left: 10px;
 	padding-right: 10px;
 	margin-top: 20px;
