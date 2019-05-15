@@ -5,25 +5,35 @@
 
 	<title>Портфолио</title>
 	<link rel="stylesheet" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
 </head>
 <body>
-	<section class="about_me container">
+	<section class="about container">
 		<img class="photo" src="img/photo.jpg" alt="Это Борис">
-		<h1>Борис Беседин</h1>
-		<p>Думает, что может сверстать сайт</p>
-		<div class="contacts">
-			<ul class="social">
-				<li><a class="social_button vk_button" href="https://vk.com/borisbesedin" target="_blank"></a></li>
-				<li><a class="social_button git_button" href="https://github.com/BorisBesedin" target="_blank"></a></li>
-			</ul>
+		<div class="about_info">
+			<h1>Борис Беседин</h1>
+			<p>Думает, что может делать сайты</p>
+			<p>HTML - CSS - Sass - Git - Gulp</p>
+			<div class="contacts">
+				<ul class="social">
+					<li><a class="social_button vk_button" href="https://vk.com/borisbesedin" target="_blank"></a></li>
+					<li><a class="social_button git_button" href="https://github.com/BorisBesedin" target="_blank"></a></li>
+				</ul>
+			</div>
 		</div>
-		<a href="#portfolio" class="portfolio_button">скорей смотреть портфолио</a>
+		<a href="#portfolio" class="portfolio_button">смотреть работы</a>
 	</section>
 	<section class="portfolio" id="portfolio">
 		<div class="container">
-			<h2>Проекты</h2>
+			<h2>Примеры работ</h2>
 			<ul class="project_list">
+				<li class="project_item"><img src="img/pink.jpg" alt="pink">
+					<div class="item_info">
+						<h3>Pink</h3>
+						<p>Адаптивный сайт мобильного приложения</p>
+						<a class="project_link" href="projects/pink/index.html" target="_blank">Перейти на сайт</a>
+					</div>
+				</li>
 				<li class="project_item"><img src="img/technomart-index.jpg" alt="Техномарт">
 					<div class="item_info">
 						<h3>Техномарт</h3>
@@ -31,30 +41,13 @@
 						<a class="project_link" href="projects/technomart/index.html" target="_blank">Перейти на сайт</a>
 					</div>
 				</li>
-
 				<li class="project_item"><img src="img/nerds-index.jpg" alt="Нёрдс">
 					<div class="item_info">
 						<h3>Nerds</h3>
 						<p>Сайт дизайн-студии</p>
 						<a class="project_link" href="projects/nerds/index.html" target="_blank">Перейти на сайт</a>
 					</div>
-				</li>
-
-				<li class="project_item"><img src="img/crios.jpg" alt="crios">
-					<div class="item_info">
-						<h3>Crios</h3>
-						<p>Пример простого лэндинга</p>
-						<a class="project_link" href="projects/crios/index.html" target="_blank">Перейти на сайт</a>
-					</div>
-				</li>
-
-				<li class="project_item"><img src="img/zeus.jpg" alt="zeus">
-					<div class="item_info">
-						<h3>Zeus</h3>
-						<p>Крафтовое пиво. Адаптивный сайт.</p>
-						<a class="project_link" href="projects/zeus/index.html" target="_blank">Перейти на сайт</a>
-					</div>
-				</li>
+				</li>								
 			</ul>
 		</div>
 	</section>

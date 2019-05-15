@@ -1,146 +1,195 @@
-body{
-	font-family: 'Open Sans', sans-serif;
-	scroll-behavior: smooth;
+body {
+	min-width: 320px;
 	max-width: 100%;
+	margin: 0;
+	font-family: 'PT Sans Narrow', 'Arial', sans-serif;
+	scroll-behavior: smooth;
 }
-a{
+
+a {
 	text-decoration: none;
 	font-size: 14px;
 	line-height: 14px;
 	text-transform: uppercase;
 	font-weight: bold;
 }
-.container{
-	width: 90%;
-	max-width: 960px;
+
+.container {
+	width: 320px;
 	margin: 0 auto;
 }
-.about_me{
-	padding: 160px 0;
+
+.about {
+	padding-top: 60px;
+	padding-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.about_info {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
+
 .photo{
 	border-radius: 50%;
 }
-.about_me h1{
+
+.about h1 {
 	padding: 5px;
 	margin-top: 50px;
-	margin-bottom: 25px;
-	font-size: 46px;
-	line-height: 46px;
-	background-color: #ddddf8;
+	margin-bottom: 0;
+	font-size: 38px;
+	line-height: 38px;
+	background-color: #F1F1F9;
 }
-.about_me p{
-	margin: 0;
-	font-size: 18px;
-	line-height: 18px;
+
+.about p {
+	margin-top: 20px;
+	margin-bottom: 0;
+	font-size: 24px;
+	line-height: 24px;
 	color: rgba(0, 0, 0, 0.4);
 }
-.social{
+
+.social {
 	margin: 0;
 	margin-top: 25px;
 	padding: 0;
 	display: flex;
 }
-.social li{
+
+.social li {
 	list-style: none;
 	margin-right: 10px;
 }
-.social_button{
+
+.social_button {
 	display: block;
 	width: 50px;
 	height: 50px;
 }
-.social_button:hover{
+
+.social_button:hover {
 	opacity: 0.6;
 }
-.social_button:active{
+
+.social_button:active {
 	opacity: 0.3;
 }
-.vk_button{
+
+.vk_button {
 	background-image: url(../img/icons8-вконтакте-50.png);
 }
-.git_button{
+
+.git_button {
 	background-image: url(../img/icons8-github-50.png);
 }
-.portfolio_button{
+
+.portfolio_button {
 	position: relative;
 	text-align: center;
 	margin-top: 30px;
-	font-size: 20px;
-	line-height: 20px;
+	font-size: 24px;
+	line-height: 24px;
 	text-transform: uppercase;
 	color: #000;
 	font-weight: bold;
 	border-bottom: 3px solid #000;
 }
-.portfolio_button:hover{
+
+.portfolio_button:hover {
 	opacity: 0.6;
 }
-.portfolio_button:active{
+
+.portfolio_button:active {
 	opacity: 0.3;
 }
-.portfolio{
-	padding-top: 120px;
-	padding-bottom: 120px;
-	background-color: #000;
+
+.portfolio {
+	padding-top: 180px;
+	padding-bottom: 60px;
+	background-image: linear-gradient(8deg, #F1F1F9 93%, #ffffff 93%, #ffffff 100%);
+
+	text-align: center;
 }
-.portfolio h2{
+
+.portfolio h2 {
 	margin: 0;
-	font-size: 46px;
-	line-height: 46px;
-	color: #fff;
+	font-size: 36px;
+	line-height: 36px;
+	color: #000000;
 	text-transform: uppercase;
 }
-.project_list{
+
+.project_list {
 	display: flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
-	margin: 0;
+	width: 280px;
+	margin: 0 auto;
 	margin-top: 60px;
 	padding: 0;
 }
-.project_item{
+
+.project_item {
 	margin-right: 20px;
 	position: relative;
 	list-style: none;
-	width: 300px;
 	margin-top: 20px;
+	border: 1px solid #e2e2e2;
+	background-color: #fff;
 }
-.project_item:hover{
+
+.project_item img { 
+	width: 280px;
+}
+
+.project_item:hover {
 	transition-duration: 0.2s;
-	box-shadow: 0 0 20px 5px #ddddf8;
+	box-shadow: 0 5px 10px 0 #666666;
 }
-.project_item:hover .item_info{
+
+.project_item:hover .item_info {
 	visibility: visible;
 }
-.item_info{
+
+.item_info {
 	visibility: hidden;
 	position: absolute;
 	bottom: 0;
 	display: flex;
-	width: 260px;
+	width: 100%;
+	min-height: 160px;
+	padding-top: 40px;
+	padding-bottom: 40px;
 	flex-direction: column;
 	align-items: center;
+	justify-content: space-around;
 	text-align: center;
-	padding: 60px 20px;
 	background-color: #eee;
 }
-.item_info h3{
+
+.item_info h3 {
 	margin: 0;
-	font-size: 20px;
-	line-height: 20px;
+	font-size: 24px;
+	line-height: 24px;
 	text-transform: uppercase;
 }
-.item_info p{
+
+.item_info p {
+	padding-left: 10px;
+	padding-right: 10px;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	font-size: 14px;
-	line-height: 14px;
+	font-size: 18px;
+	line-height: 18px;
 }
-.project_link{
+
+.project_link {
 	display: block;
 	padding: 12px;
 	width: 160px;
@@ -148,34 +197,166 @@ a{
 	color: #fff;
 	border-radius: 10px;
 }
-.project_link:hover{
+
+.project_link:hover {
 	background-color: #d74040;
 }
-.project_link:active{
+
+.project_link:active {
 	background-color: #c92a2a;
 	color: rgba(255, 255, 255, 0.4);
 }
-@media screen and (max-width: 600px){
-	.project_list{
+
+@media (min-width: 660px) {
+	.container {
+		width: 620px;
+		margin: 0 auto;
+	}
+	.about {
+		width: 660px;
+		margin: 0 auto;
+		padding-top: 100px;
+		padding-bottom: 60px;
 		display: flex;
-		flex-direction: column;
-		align-items: center;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		flex-direction: row;
 	}
-	.portfolio h2{
-		text-align: center;
+
+	.about h1 {
+		padding: 5px;
+		margin-top: 50px;
+		margin-bottom: 0;
+		font-size: 42px;
+		line-height: 42px;
+		background-color: #F1F1F9;
 	}
-	.about_me{
-	padding: 80px 0;
+
+	.about p {
+		margin-top: 30px;
+		margin-bottom: 0;
+		font-size: 28px;
+		line-height: 28px;
+		color: rgba(0, 0, 0, 0.4);
 	}
-	.about_me h1{
-	font-size: 30px;
-	line-height: 30px;
+
+	.portfolio_button {
+		margin-top: 160px;
+		font-size: 40px;
+		line-height: 40px;
 	}
-	.portfolio{
-	padding-top: 60px;
-	padding-bottom: 60px;
+
+	.portfolio {
+		padding-top: 200px;
+		background-image: linear-gradient(3deg, #F1F1F9 91%, #ffffff 91%, #ffffff 100%);
 	}
-	.project_item{
-	margin-right: 0;
+
+	.portfolio h2 {
+		font-size: 40px;
+		line-height: 40px;
+	}
+
+	.project_list {
+		width: 584px;
+		margin: 0 auto;
+		margin-top: 60px;
+	}
+
+	.project_item {
+		width: 280px;
+		margin: 0;
+		margin-top: 20px;
+	}
+
+	.project_item img { 
+		width: 280px;
+	}	
+
+	.project_item:not(:nth-child(2n)) {
+		margin-right: 20px;
 	}
 }
+
+@media (min-width: 960px) {
+	.container {
+		width: 940px;
+		margin: 0 auto;
+	}
+	.about {
+		width: 940px;
+		margin: 0 auto;
+		padding-top: 160px;
+		padding-bottom: 60px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		flex-direction: row;
+	}
+
+	.photo {
+		width: 350px;
+	}
+
+	.about h1 {
+		padding: 5px;
+		margin-top: 50px;
+		margin-bottom: 0;
+		font-size: 48px;
+		line-height: 48px;
+		background-color: #F1F1F9;
+	}
+
+	.about p {
+		margin-top: 40px;
+		font-size: 32px;
+		line-height: 32px;
+	}
+
+	.portfolio_button {
+		margin-top: 160px;
+		font-size: 40px;
+		line-height: 40px;
+	}
+
+	.portfolio {
+		padding-top: 200px;
+		padding-bottom: 200px;
+		background-image: linear-gradient(3deg, #F1F1F9 91%, #ffffff 91%, #ffffff 100%);
+	}
+
+	.portfolio h2 {
+		font-size: 48px;
+		line-height: 48px;
+	}
+
+	.project_list {
+		width: 940px;
+		margin: 0 auto;
+		margin-top: 100px;
+	}
+
+	.project_list .project_item {
+		width: 298px;
+		margin: 0;
+		margin-top: 40px;
+	}
+
+	.project_item img { 
+		width: 298px;
+	}	
+
+	.project_item:not(:nth-child(3n)) {
+		margin-right: 20px;
+	}
+
+	.item_info h3 {
+		font-size: 30px;
+		line-height: 30px;
+	}
+
+	.item_info p {
+		font-size: 24px;
+		line-height: 24px;
+	}
+}
+
