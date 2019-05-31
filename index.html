@@ -9,11 +9,8 @@
 </head>
 <body>
 	<section class="about container">
-		<img class="photo" src="img/photo.jpg" alt="Это Борис">
-		<div class="about_info">
-			<h1>Борис Беседин</h1>
-			<p>Думает, что может делать сайты</p>
-			<p>HTML - CSS - Sass - Git - Gulp</p>
+		<div class="image_container">
+			<img class="photo" src="img/photo.jpg" alt="Это Борис">
 			<div class="contacts">
 				<ul class="social">
 					<li><a class="social_button vk_button" href="https://vk.com/borisbesedin" target="_blank"></a></li>
@@ -21,31 +18,55 @@
 				</ul>
 			</div>
 		</div>
+		<div class="about_info">			
+			<h1>Борис Беседин</h1>
+			<p>Думает, что может делать сайты</p>
+			<ul class="tech_list">
+				<li class="tech_item item-html"></li>
+				<li class="tech_item item-css"></li>
+				<li class="tech_item item-sass"></li>
+				<li class="tech_item item-gulp"></li>
+				<li class="tech_item item-git"></li>
+			</ul>
+			
+		</div>
 		<a href="#portfolio" class="portfolio_button">смотреть работы</a>
 	</section>
 	<section class="portfolio" id="portfolio">
 		<div class="container">
 			<h2>Примеры работ</h2>
 			<ul class="project_list">
-				<li class="project_item"><img src="img/pink.JPG" alt="pink">
+				<li class="project_item">
+					<a href="projects/pink/index.html" target="_blank"><img src="img/pink.JPG" alt="pink"></a>
 					<div class="item_info">
-						<h3>Pink</h3>
-						<p>Адаптивный сайт мобильного приложения</p>
-						<a class="project_link" href="projects/pink/index.html" target="_blank">Перейти на сайт</a>
+						<div class="item_title">
+							<h3>Pink</h3>
+							<p>Cайт мобильного приложения</p>
+							<p>HTML - CSS - Sass - Gulp - JS - адаптивная вертска</p>
+						</div>						
+						<a class="project_link" href="projects/pink/index.html" target="_blank">Открыть</a>
 					</div>
 				</li>
-				<li class="project_item"><img src="img/technomart-index.jpg" alt="Техномарт">
+				<li class="project_item">
+					<a href="projects/technomart/index.html" target="_blank"><img src="img/technomart-index.jpg" alt="Техномарт"></a>
 					<div class="item_info">
-						<h3>Техномарт</h3>
-						<p>Сайт интернет-магазина строительных товаров</p>
-						<a class="project_link" href="projects/technomart/index.html" target="_blank">Перейти на сайт</a>
+						<div class="item_title">
+							<h3>Техномарт</h3>
+							<p>Интернет-магазин</p>
+							<p>HTML - CSS - JS</p>
+						</div>
+						<a class="project_link" href="projects/technomart/index.html" target="_blank">Открыть</a>
 					</div>
 				</li>
-				<li class="project_item"><img src="img/nerds-index.jpg" alt="Нёрдс">
+				<li class="project_item">
+					<a href="projects/nerds/index.html" target="_blank"><img src="img/nerds-index.jpg" alt="Нёрдс"></a>
 					<div class="item_info">
-						<h3>Nerds</h3>
-						<p>Сайт дизайн-студии</p>
-						<a class="project_link" href="projects/nerds/index.html" target="_blank">Перейти на сайт</a>
+						<div class="item_title">
+							<h3>Nerds</h3>
+							<p>Сайт дизайн-студии</p>
+							<p>HTML - CSS - JS</p>
+						</div>						
+						<a class="project_link" href="projects/nerds/index.html" target="_blank">Открыть</a>
 					</div>
 				</li>								
 			</ul>
