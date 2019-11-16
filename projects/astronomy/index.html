@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Astronomy</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
+</head>
+<body>
+	<section class="start-popup popup">
+		<h2 class="start-popup__title">Ну что, пару вопросов по астрономии?</h2>
+		<div class="start-popup__name">
+			<label for="name">Введите ваше имя: </label>
+			<input type="text" id="name" name="name" class="start-popup__name-input">
+		</div>
+		<button class="start-popup__button" type="button">Погнали!</button>		
+	</section>
+
+	<section class="question question--hide popup">
+		<p class="question__text">text</p>
+		<form class="question__answers">
+			<div class="question__answer">
+				<label for=""></label>
+				<input type="radio" id="" name="answer">				
+			</div>			
+		</form>
+		<button class="question__next-btn">Следующий давай!</button>
+	</section>
+
+	<section class="finish-popup finish-popup--hide popup">
+		<h2 class="finish-popup__title">Результат</h2>
+		<p class="finish-popup__result"></p>
+		<p class="finish-popup__description"></p>
+		<img src="" alt="" height="300px">
+	</section>
+	<script src="js/main.js"></script>
+	<script src="js/question.js"></script>		
+</body>
+</html>
