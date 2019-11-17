@@ -1,6 +1,6 @@
 body {
 	font-family: 'Play', 'Arial', sans-serif;
-	background-color: #FFE4B5;
+	background-color: #FFFFE0;
 }
 
 .visually-hidden {
@@ -170,9 +170,9 @@ body {
 	content: "";
 	position: absolute;
 	top: 4px;
-	left: -27px;
-	width: 15px;
-	height: 15px;
+	left: -26px;
+	width: 14px;
+	height: 14px;
 	background-color: #000;
 }
 
