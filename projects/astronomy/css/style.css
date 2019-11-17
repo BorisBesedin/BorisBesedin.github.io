@@ -15,8 +15,8 @@ body {
 
 .popup {
 	display: block;
-	position: fixed;
 	width: 600px;
+	margin: 0 auto;
 	padding-top: 40px;
 	padding-bottom: 40px;
 	padding-left: 10px;
@@ -26,13 +26,16 @@ body {
 	box-shadow: 2px 2px 5px 0 #000;
 	border-radius: 5px;
 	background-color: #fff;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 }
 
 /* Стартовое окно
 ================================================= */
+.start-popup {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
 
 .start-popup--hide {
 	display: none;
@@ -115,6 +118,9 @@ body {
 
 /* Попап с вопросом
 =================================================*/
+.question {
+	margin-top: 100px;
+}
 
 .question--hide {
 	display: none;
@@ -177,6 +183,10 @@ body {
 	font-size: 16px;
 }
 
+.finish-popup {
+	margin-top: 100px;
+}
+
 .finish-popup--hide {
 	display: none;
 }
@@ -198,6 +208,14 @@ body {
 	.toggles__item {
 		width: 10px;
 		height: 10px;
+	}
+
+	.question {
+		margin-top: 50px;
+	}
+
+	.finish-popup {
+		margin-top: 50px;
 	}
 
 	.finish-popup img {
