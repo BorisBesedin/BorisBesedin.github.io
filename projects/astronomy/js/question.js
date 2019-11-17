@@ -43,11 +43,13 @@
 	var finishPopup = document.querySelector('.finish-popup');
 	var question = document.querySelector('.question');
 
+	var togglesList = document.querySelector('.toggles__list');
+
 	var playerAnswers = [];
 	var answersKey = [2, 2, 3, 1, 1, 2, 4, 3, 3, 2];
 	var questionNumber = 0;
 
-	var checkAnswers = function () {
+	var checkAllAnswers = function () {
 		var answersRight = 0;
 
 		for (var i = 0; i < answersKey.length; i++) {
@@ -58,10 +60,28 @@
 		return answersRight;
 	};
 
-	checkAnswers();
+	var renderToggles = function () {
+		var questionsNumber = QUESTIONS.length;
+
+		for (var i = 0; i < questionsNumber; i++) {
+			var toggle = document.createElement('li');
+			togglesList.appendChild(toggle);
+			toggle.setAttribute('class', 'toggles__item');
+		}
+	};
+
+	var checkAnswer = function () {
+		var toggles = document.querySelectorAll('.toggles__item');
+
+		if (+playerAnswers[questionNumber - 1] === answersKey[questionNumber - 1]) {
+			toggles[questionNumber - 1].classList.add('toggles__item--true');
+		} else {
+			toggles[questionNumber - 1].classList.add('toggles__item--false');
+		}
+	};
 
 	var createFinishPopup = function () {
-		var answersRight = checkAnswers();
+		var answersRight = checkAllAnswers();
 		var image = finishPopup.querySelector('img');
 
 
@@ -122,11 +142,15 @@
 		}
 	};
 
+	renderToggles();
+
 	nextBtn.addEventListener('click', function () {
 		var playerAnswer = document.querySelector('.question__answer input:checked');
 
+
 		if (playerAnswer) {
 			playerAnswers.push(playerAnswer.value);
+			checkAnswer();
 
 			if (questionNumber < QUESTIONS.length) {
 				window.createQuestion(questionNumber++);

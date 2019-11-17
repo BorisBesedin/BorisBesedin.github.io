@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<title>Astronomy</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
 </head>
@@ -16,12 +17,17 @@
 		<button class="start-popup__button" type="button">Погнали!</button>		
 	</section>
 
+	<section class="toggles">
+		<ul class="toggles__list toggles__list--hide">
+		</ul>
+	</section>
+
 	<section class="question question--hide popup">
 		<p class="question__text">text</p>
 		<form class="question__answers">
-			<div class="question__answer">
-				<label for=""></label>
-				<input type="radio" id="" name="answer">				
+			<div class="question__answer">				
+				<input type="radio" id="" name="answer" class="visually-hidden">
+				<label for=""></label>				
 			</div>			
 		</form>
 		<button class="question__next-btn">Следующий давай!</button>
