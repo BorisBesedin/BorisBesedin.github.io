@@ -1,39 +1,9 @@
 'use strict';
 
 (function () {
-	var QUESTIONS = [{
-		question: 'Сколько планет в солнечной системе?',
-		answers: ['7', '8', '9', '10', 'Я не знаю, я тупой']
-	}, {
-		question: 'Ближайшая к нам галактика Андромеды находится на расстоянии?',
-		answers: ['1,5 млн св.лет', '2,5 млн св.лет', '3 млн св.лет', 'Я не знаю, я тупой']
-	}, {
-		question: 'Что такое «солнечный ветер»?',
-		answers: ['Комплекс явлений, вызванных генерацией сильных магнитных полей на Солнце',
-		 'Последняя внешняя оболочка Солнца', 'поток ионизированных частиц, истекающий из солнечной короны в окружающее космическое пространство', 'Я не знаю, я тупой']
-	}, {
-		question: 'Облако Оорта – это?',
-		answers: ['сферическая область Солнечной системы',
-		 'самый большой ураган на Юпитере', 'грозовой фронт на Венере', 'Я не знаю, я тупой']
-	}, {
-		question: 'Пояс астероидов расположен: ',
-		answers: ['между орбитами Марса и Юпитера', 'за орбитой Плутона', 'между Солнцем и Меркурием', 'Я не знаю, я тупой']
-	}, {
-		question: 'Является ли Плутон планетой?',
-		answers: ['Да', 'Нет', 'Я не знаю, я тупой']
-	}, {
-		question: 'Первооткрывателем законов движения планет Солнечной системы был:',
-		answers: ['Николай Коперник', 'Джордано Бруно', 'Жак Кассини', 'Иоганн Кеплер', 'Я не знаю, я тупой']
-	}, {
-		question: 'Сколько спутников у Марса?',
-		answers: ['их нет', '1', '2', '3', 'Я не знаю, я тупой']
-	}, {
-		question: 'Самый большой спутник в Солнечной системе:',
-		answers: ['Ио', 'Луна', 'Ганимед', 'Европа', 'Я не знаю, я тупой']
-	}, {
-		question: 'К какому типу звезд по спектральной классификации относится Солнце?',
-		answers: ['Белый карлик', 'Желтый карлик', 'Красный карлик', 'Белый гигант', 'Я не знаю, я тупой']
-	}];
+	var QUESTIONS_COUNT = 10;
+
+	var QUESTIONS;
 
 	var questionText = document.querySelector('.question__text');
 	var questionAnswers = document.querySelector('.question__answers');
@@ -45,20 +15,19 @@
 
 	var togglesList = document.querySelector('.toggles__list');
 
-	var playerAnswers = [];
-	var answersKey = [2, 2, 3, 1, 1, 2, 4, 3, 3, 2];
+	var answersRight = 0;
 	var questionNumber = 0;
 
-	var checkAllAnswers = function () {
-		var answersRight = 0;
-
-		for (var i = 0; i < answersKey.length; i++) {
-			if (answersKey[i] === +playerAnswers[i]) {
-				answersRight++
-			}
+	var shuffle = function (arr) {
+		var j, temp;
+		for(var i = arr.length - 1; i > 0; i--){
+			j = Math.floor(Math.random()*(i + 1));
+			temp = arr[j];
+			arr[j] = arr[i];
+			arr[i] = temp;
 		}
-		return answersRight;
-	};
+		return arr;
+	}
 
 	var renderToggles = function () {
 		var questionsNumber = QUESTIONS.length;
@@ -70,46 +39,46 @@
 		}
 	};
 
-	var checkAnswer = function () {
+	var checkAnswer = function (answer) {
 		var toggles = document.querySelectorAll('.toggles__item');
 
-		if (+playerAnswers[questionNumber - 1] === answersKey[questionNumber - 1]) {
+		if (answer === QUESTIONS[questionNumber - 1].key) {
 			toggles[questionNumber - 1].classList.add('toggles__item--true');
+			answersRight++;
 		} else {
 			toggles[questionNumber - 1].classList.add('toggles__item--false');
 		}
 	};
 
 	var createFinishPopup = function () {
-		var answersRight = checkAllAnswers();
 		var image = finishPopup.querySelector('img');
-
+		var percent = answersRight * 100 / QUESTIONS_COUNT;
 
 		finishPopup.classList.remove('finish-popup--hide');
 		finishPopup.querySelector('.finish-popup__result').textContent = 
-		'Поздравляю, ' + window.playerName + '! Твой результат: ' + answersRight + '/10';
+		'Поздравляю, ' + window.playerName + '! Твой результат: ' + answersRight + '/' + QUESTIONS.length;
 
-		if (answersRight <= 3) {
+		if (percent <= 30) {
 			finishPopup.querySelector('.finish-popup__description').textContent = 
 			'Блин, ' + window.playerName + ', ты тупой';
 			image.setAttribute('src', 'img/debil.jpg');
 		}
 
-		if (answersRight > 3 && answersRight <= 5) {
+		if (percent > 30 && percent <= 50) {
 			finishPopup.querySelector('.finish-popup__description').textContent = 
-			'Не очень, конечно, но что поделать';
+			'Не очень, конечно, но что поделать. Но ведь ты же ни на что не претендовал, да?';
 			image.setAttribute('src', 'img/low.jpg');
 		}
 
-		if (answersRight > 5 && answersRight < 9) {
+		if (percent > 50 && percent < 90) {
 			finishPopup.querySelector('.finish-popup__description').textContent = 
-			'Неплохо, дружок! Возможно, ты умней какого-нибудь среднестатистического школьника.';
+			'Неплохо, дружок! Возможно, ты умней какого-нибудь среднестатистического школьника(нет).';
 			image.setAttribute('src', 'img/mid.jpg');
 		}
 
-		if (answersRight >= 9) {
+		if (percent >= 90) {
 			finishPopup.querySelector('.finish-popup__description').textContent = 
-			'Ты правильно ответил на все или почти все вопросы. И чего ты ждешь? Похвалы? Ну молодец.';
+			'Ты правильно ответил на все или почти все вопросы. И чего ты ждешь? Похвалы? Ну молодец. А теперь проваливай.';
 			image.setAttribute('src', 'img/high.jpg');
 		}
 
@@ -142,15 +111,14 @@
 		}
 	};
 
+	QUESTIONS = shuffle(data).slice(0, QUESTIONS_COUNT);
 	renderToggles();
 
 	nextBtn.addEventListener('click', function () {
 		var playerAnswer = document.querySelector('.question__answer input:checked');
 
-
 		if (playerAnswer) {
-			playerAnswers.push(playerAnswer.value);
-			checkAnswer();
+			checkAnswer(playerAnswer.value);
 
 			if (questionNumber < QUESTIONS.length) {
 				window.createQuestion(questionNumber++);

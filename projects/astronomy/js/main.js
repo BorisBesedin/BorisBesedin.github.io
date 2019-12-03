@@ -5,7 +5,6 @@ var startBtn = document.querySelector('.start-popup__button');
 var startPopup = document.querySelector('.start-popup');
 var togglesList = document.querySelector('.toggles__list');
 
-
 window.playerName;
 
 startBtn.addEventListener('click', function () {
