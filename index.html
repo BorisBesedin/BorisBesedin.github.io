@@ -5,7 +5,7 @@
 
 	<title>Портфолио</title>
 	<link rel="stylesheet" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 	<section class="about container">
@@ -45,9 +45,9 @@
 			</ul>
 			<button class="certificate_btn">Показать сертификаты</button>
 			<ul class="certificate_list certificate_list--closed">
-				<li class="certificate_item"><a href="https://assets.htmlacademy.ru/certificates/intensive/89/150991.pdf?1547035823"><img src="img/cert-1.jpg" alt=""></a></li>
-				<li class="certificate_item"><a href="https://assets.htmlacademy.ru/certificates/intensive/113/150991.pdf?1563722992"><img src="img/cert-2.jpg" alt=""></a></li>
-				<li class="certificate_item"><a href="https://assets.htmlacademy.ru/certificates/intensive/121/150991.pdf?1571931740"><img src="img/cert-3.jpg" alt=""></a></li>
+				<li class="certificate_item"><a href="https://assets.htmlacademy.ru/certificates/intensive/89/150991.pdf?1547035823" target="_blank"><img src="img/cert-1.jpg" alt=""></a></li>
+				<li class="certificate_item"><a href="https://assets.htmlacademy.ru/certificates/intensive/113/150991.pdf?1563722992" target="_blank"><img src="img/cert-2.jpg" alt=""></a></li>
+				<li class="certificate_item"><a href="https://assets.htmlacademy.ru/certificates/intensive/121/150991.pdf?1571931740" target="_blank"><img src="img/cert-3.jpg" alt=""></a></li>
 			</ul>
 		</div>
 	</section>
@@ -57,38 +57,24 @@
 			<h2 class="section_title">Примеры работ</h2>
 			<ul class="project_list">
 				<li class="project_item">
-					<a href="projects/pink/index.html" target="_blank"><img src="img/pink.JPG" alt="pink"></a>
-					<div class="item_info">
-						<div class="item_title">
-							<h3>Pink</h3>
-							<p>Cайт мобильного приложения</p>
-							<p>HTML - CSS - Sass - Gulp - JS - адаптивная вертска</p>
-						</div>						
-						<a class="project_link" href="projects/pink/index.html" target="_blank">Открыть</a>
-					</div>
+					<a href="projects/pink/index.html" target="_blank" data-title="Pink" data-description="Cайт мобильного приложения. Адаптивная верстка, использован препроцессор Sass, сборка в Gulp" class="project_link"><img src="img/pink.JPG" alt="pink"></a>					
 				</li>
+
 				<li class="project_item">
-					<a href="projects/technomart/index.html" target="_blank"><img src="img/technomart-index.jpg" alt="Техномарт"></a>
-					<div class="item_info">
-						<div class="item_title">
-							<h3>Техномарт</h3>
-							<p>Интернет-магазин</p>
-							<p>HTML - CSS - JS</p>
-						</div>
-						<a class="project_link" href="projects/technomart/index.html" target="_blank">Открыть</a>
-					</div>
+					<a href="projects/Keksobooking/index.html" target="_blank" data-title="Keksobooking" data-description="Сервис размещения объявлений об аренде недвижимости в Токио" class="project_link"><img src="img/keksobooking.JPG" alt="keksobooking"></a>				
+				</li>	
+
+				<li class="project_item">
+					<a href="projects/astronomy/index.html" target="_blank" data-title="Тест" data-description="Тест по астрономии из 10 вопросов. Вопросы случайным образом рендерятся из данных в JSON-файле" class="project_link"><img src="img/astronomy.JPG" alt="astronomy"></a>				
+				</li>	
+
+				<li class="project_item">
+					<a href="projects/technomart/index.html" target="_blank" data-title="Техномарт" data-description="Простой статичный сайт строительного интернет-магазина" class="project_link"><img src="img/technomart-index.jpg" alt="техномарт"></a>				
 				</li>
+
 				<li class="project_item">
-					<a href="projects/nerds/index.html" target="_blank"><img src="img/nerds-index.jpg" alt="Нёрдс"></a>
-					<div class="item_info">
-						<div class="item_title">
-							<h3>Nerds</h3>
-							<p>Сайт дизайн-студии</p>
-							<p>HTML - CSS - JS</p>
-						</div>						
-						<a class="project_link" href="projects/nerds/index.html" target="_blank">Открыть</a>
-					</div>
-				</li>								
+					<a href="projects/nerds/index.html" target="_blank" data-title="Nerds" data-description="Простой лендинг дизайн-студии" class="project_link"><img src="img/nerds-index.jpg" alt="nerds"></a>				
+				</li>										
 			</ul>
 		</div>
 	</section>
