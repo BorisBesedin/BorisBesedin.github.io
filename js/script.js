@@ -14,7 +14,6 @@ var scroll = function (element) {
 };
 
 experienceBtn.addEventListener('click', function () {
-	console.log('[eq');
 	if (experienceList.classList.contains('certificate_list--closed')) {
 		experienceList.classList.remove('certificate_list--closed');
 		experienceBtn.textContent = 'Скрыть сертификаты';
