@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">    
+    <title>Weather</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="title">What's the weather now, dude?</h1>
+        <div class="container">
+            <div class="temperature-info">
+                <div class="location">
+                    <h2 class="location-title">Your location</h2>
+                    <p>
+                        <span class="location-timezone"></span>
+                        <span>timezone</span>
+                    </p>
+                </div>
+                <div class="temperature">
+                    <canvas class="icon" width="128" height="128"></canvas>
+                    <div class="temperature-container">
+                        <h2 class="temperature-value">0</h2>
+                        <span class="temperature-scale">C</span>
+                    </div>
+                    <div class="temperature-description">cold</div>
+                </div>
+            </div>
+            <div class="other-city">
+                <div class="add-city">
+                    <input type="text">
+                    <button class="add-btn" type="button">add city</button>
+                </div>
+                <div class="cities">
+                    <h2 class="cities-title">Cities list</h2>
+                    <ul class="cities-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="template">
+        <li class="cities-item">
+            <div class="cities-name-section">
+                <h3 class="cities-name">City</h3>
+                <p class="cities-description"></p>
+            </div> 
+            <div class="cities-temperature-section">
+                <p class="cities-temperature">20 </p>
+                <span>C</span>
+            </div>            
+            <button class="cities-close">X</button>
+        </li>
+    </div>
+    <script src="./skycons.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>

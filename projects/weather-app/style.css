@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(to bottom,#4169E1, #6495ED);
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 50px;
+    line-height: 56px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.container {
+    margin-top: 80px;
+    display: flex;
+}
+
+/*=== main temperature block ==== */
+
+.temperature-info, .add-city, .cities {    
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px 0px #000000;
+}
+
+.temperature-info {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    flex-direction: column;
+    width: 400px;    
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+}
+
+.location p {
+    display: flex;
+    flex-direction: column;
+}
+
+.location-timezone {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.location-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.location, .temperature {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.temperature-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.temperature {
+    margin-top: 20px;
+    flex-direction: column;    
+}
+
+.temperature-scale {
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.temperature-value {
+    font-size: 40px;
+}
+
+.temperature-description {
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+/*==== add city block =====*/
+
+.other-city {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.add-city {
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.add-city input, .add-btn {
+    font-size: 20px;
+    padding: 5px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.add-city input {
+    width: 250px;
+}
+
+.add-btn {
+    cursor: pointer;
+    margin-left: 10px;
+    transition: 0.3s ease-in;
+}
+
+.add-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/*=== cities list ===== */
+
+.cities {
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    flex-grow: 2;
+}
+
+.cities-title {
+    margin-bottom: 20px;
+}
+
+.cities-name-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.cities-name {
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.cities-list {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cities-item {
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    transition: 0.2s ease-in;
+}
+
+.cities-item:hover {
+    box-shadow: 0 2px 2px 0 #000000;
+    transform: scale(1.01);
+}
+
+.cities-temperature-section {
+    padding-right: 20px;
+    display: flex;
+}
+
+.cities-temperature {
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.cities-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    color: red;
+    padding: 5px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.template {
+    display: none;
+}
+
