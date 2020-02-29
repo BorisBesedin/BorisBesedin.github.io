@@ -15,13 +15,14 @@ window.addEventListener('load', () => {
     function addCity() {
         let location = cityInput.value;
 
-        const geocoder = `https://geocode-maps.yandex.ru/1.x/?apikey=0f35a098-67cb-49e4-a28d-27b3cd6167d0&geocode=${location}&format=json`;
+        const geocoder = `https://geocode-maps.yandex.ru/1.x/?apikey=0f35a098-67cb-49e4-a28d-27b3cd6167d0&geocode=${location}&format=json&lang=en_RU`;
 
         fetch(geocoder)
             .then(response => {
                 return response.json();
             })
             .then(data => {
+                console.log(data);
                 let coords = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' '),
                     lat = coords[1],
                     long = coords[0];
@@ -85,7 +86,7 @@ window.addEventListener('load', () => {
                 lat = position.coords.latitude;
             getWeatherData(lat, long, renderMainBlock);
             
-            const geocoder = `https://geocode-maps.yandex.ru/1.x/?apikey=0f35a098-67cb-49e4-a28d-27b3cd6167d0&geocode=${long}, ${lat}&format=json`;
+            const geocoder = `https://geocode-maps.yandex.ru/1.x/?apikey=0f35a098-67cb-49e4-a28d-27b3cd6167d0&geocode=${long}, ${lat}&format=json&lang=en_RU`;
 
             fetch(geocoder)
                 .then(response => {
