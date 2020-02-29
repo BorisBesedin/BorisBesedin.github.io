@@ -22,7 +22,6 @@ window.addEventListener('load', () => {
                 return response.json();
             })
             .then(data => {
-                console.log(data);
                 let coords = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' '),
                     lat = coords[1],
                     long = coords[0];
