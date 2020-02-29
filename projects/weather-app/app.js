@@ -14,15 +14,17 @@ window.addEventListener('load', () => {
 
     function addCity() {
         let location = cityInput.value;
-        const geocoder = `http://search.maps.sputnik.ru/search?q=${location}%2013`;
+
+        const geocoder = `https://geocode-maps.yandex.ru/1.x/?apikey=0f35a098-67cb-49e4-a28d-27b3cd6167d0&geocode=${location}&format=json`;
 
         fetch(geocoder)
         .then(response => {
             return response.json();
         })
         .then(data => {
-            let lat = data.result[0].position.lat,
-                long = data.result[0].position.lon;
+            let coords = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' '),
+                lat = coords[1],
+                long = coords[0];
             getWeatherData(lat, long, renderCityItem);             
         })
         .catch(() => {
