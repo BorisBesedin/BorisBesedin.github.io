@@ -18,18 +18,18 @@ window.addEventListener('load', () => {
         const geocoder = `https://geocode-maps.yandex.ru/1.x/?apikey=0f35a098-67cb-49e4-a28d-27b3cd6167d0&geocode=${location}&format=json`;
 
         fetch(geocoder)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            let coords = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' '),
-                lat = coords[1],
-                long = coords[0];
-            getWeatherData(lat, long, renderCityItem);             
-        })
-        .catch(() => {
-            alert("something's wrong");
-        });
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                let coords = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' '),
+                    lat = coords[1],
+                    long = coords[0];
+                getWeatherData(lat, long, renderCityItem);
+            })
+            .catch(() => {
+                alert("something's wrong");
+            });
     }
 
     function renderCityItem(data) {
@@ -83,7 +83,21 @@ window.addEventListener('load', () => {
         navigator.geolocation.getCurrentPosition(position => {
             let long = position.coords.longitude,
                 lat = position.coords.latitude;
-            getWeatherData(lat, long, renderMainBlock);            
+            getWeatherData(lat, long, renderMainBlock);
+            
+            const geocoder = `https://geocode-maps.yandex.ru/1.x/?apikey=0f35a098-67cb-49e4-a28d-27b3cd6167d0&geocode=${long}, ${lat}&format=json`;
+
+            fetch(geocoder)
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    let name = data.response.GeoObjectCollection.featureMember[0].GeoObject.description.split(',')[0];
+                    cityName.textContent = name;
+                })
+                .catch(() => {
+                    alert("something's wrong");
+                });
         });
     }
 
