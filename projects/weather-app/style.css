@@ -7,12 +7,13 @@
 body {
     height: 100vh;
     background-image: linear-gradient(to bottom,#4169E1, #6495ED);
+    background-repeat: no-repeat;
     font-family: 'Josefin Sans', sans-serif;
     text-align: center;
 }
 
 .wrapper {
-    height: 100vh;
+    height: 100%;
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -69,7 +70,7 @@ body {
 }
 
 .location-title {
-    font-size: 36px;
+    font-size: 26px;
     margin-bottom: 20px;
     text-transform: uppercase;
 }
@@ -221,5 +222,71 @@ body {
 
 .template {
     display: none;
+}
+
+@media (max-width: 840px) {
+    body {
+        height: 100%;
+    }
+    .container {
+        width: 100%;
+        margin-top: 40px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title {
+        font-size: 36px;
+        line-height: 40px;
+        margin-top: 40px;
+    }
+
+    .temperature-info {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .other-city {
+        width: 100%;
+        max-width: 400px;
+        margin-left: 0;
+        margin-top: 20px;
+        margin-bottom: 40px;
+
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px 0px #000000;
+    }
+
+    .add-city input {
+        width: 60%;
+    }
+
+    .add-city {
+        padding-top: 0;
+        order: 2;
+    }
+
+    .cities {
+        margin: 0;
+        order: 1;
+    }
+
+    .icon {
+        height: 96px;
+    }
+
+    .location-title {
+        font-size: 24px;
+    }
+
+    .add-city, .cities  {
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
 }
 
