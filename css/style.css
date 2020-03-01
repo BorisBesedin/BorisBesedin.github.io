@@ -532,7 +532,6 @@ a {
 		padding-top: 160px;
 		padding-bottom: 60px;
 		display: flex;
-		flex-wrap: wrap;
 		justify-content: space-around;
 		flex-direction: row;
 	}
@@ -551,6 +550,7 @@ a {
 	}
 
 	.about p {
+		width: 450px;
 		margin-top: 40px;
 		font-size: 32px;
 		line-height: 32px;
