@@ -1,0 +1,2 @@
+!function(){let e=document.querySelector(".menu__item--feed"),t=document.querySelector(".feed");e.addEventListener("click",()=>{e.classList.toggle("menu__item--active"),t.classList.toggle("feed--active"),function(e){let t=e.offsetTop;window.scrollTo({top:t,behavior:"smooth"})}(t)}),document.querySelectorAll(".feed__item").forEach(function(e){let t=e.querySelector(".feed__bookmark");e.addEventListener("click",function(o){o.preventDefault(),o.target===t&&e.classList.toggle("feed__item--bookmark")})})}();
+//# sourceMappingURL=main-min.js.map
