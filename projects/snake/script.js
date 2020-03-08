@@ -8,7 +8,7 @@ let canvas = document.querySelector('#game'),
     playerName,
     storage = localStorage;
 
-if (storage === {}) {
+if (storage === null) {
     storage.setItem("results", JSON.stringify([]));
 }
 
