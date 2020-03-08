@@ -8,10 +8,6 @@ let canvas = document.querySelector('#game'),
     playerName,
     storage = localStorage;
 
-if (storage === null) {
-    storage.setItem("results", JSON.stringify([]));
-}
-
 let startPopup = document.querySelector('.start-popup'),
     endPopup = document.querySelector('.end-popup'),
     startBtn = document.querySelector('.start-btn'),
@@ -61,22 +57,19 @@ function gameStart() {
     gameSpeed = 0;
     score = 0;
     document.querySelector('.score').textContent = score;
-
     startPopup.classList.add('show');
+}
 
-    startBtn.addEventListener('click', () => {
-        clearInterval(interval);
-        interval = setInterval(game, 50 - gameSpeed);
-        startPopup.classList.remove('show');
-        playerName = document.querySelector('.player-name').value;
-    });
+function clearResults() {
+    let results = resultsList.querySelectorAll('li');
+    results.forEach(item => item.remove());
 }
 
 function renderResults() {
     let data = JSON.parse(storage.getItem("results"));
-    let results = resultsList.querySelectorAll('li');
 
-    results.forEach(item => item.remove());
+    clearResults();
+    
     data.forEach(function(el) {
         let result = template.querySelector('li').cloneNode(true),
             name = result.querySelector('.result-name'),
@@ -102,8 +95,8 @@ function gameEnd() {
     renderResults();
 
     clearBtn.addEventListener('click', () => {
-        storage.setItem("results", JSON.stringify([]));
-        renderResults();
+        storage.clear();
+        clearResults();
     });
 
     againBtn.addEventListener('click', () => {
@@ -202,6 +195,17 @@ document.addEventListener('keydown', function(evt) {
 });
 
 gameStart();
+
+startBtn.addEventListener('click', () => {
+    clearInterval(interval);
+    interval = setInterval(game, 50 - gameSpeed);
+    startPopup.classList.remove('show');
+    playerName = document.querySelector('.player-name').value;
+
+    if (storage.length === 0) {
+        storage.setItem("results", JSON.stringify([]));
+    }
+});
 
 
 
