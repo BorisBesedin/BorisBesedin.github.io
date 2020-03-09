@@ -147,9 +147,9 @@ function game() {
 
     // food
 
-    context.fillStyle = 'red';
+    context.fillStyle = 'orange';
     context.fillRect(food.x, food.y, grid - 1, grid - 1);
-    context.fillStyle = 'green';
+    context.fillStyle = 'black';
 
     snake.cells.forEach(function (cell, index) {
         context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
@@ -177,8 +177,7 @@ function game() {
     });
 }
 
-document.addEventListener('keydown', function(evt) {
-    
+document.addEventListener('keydown', function(evt) {    
     if (evt.keyCode === 37 && snake.dx === 0) {
         snake.dx = -grid;
         snake.dy = 0;
@@ -189,6 +188,23 @@ document.addEventListener('keydown', function(evt) {
         snake.dx = grid;
         snake.dy = 0;
     } else if (evt.keyCode === 40 && snake.dy === 0) {
+        snake.dx = 0;
+        snake.dy = grid;
+    }
+});
+
+document.addEventListener('touchstart', function(evt) { 
+    console.log(evt.touches[0].pageX);   
+    if (evt.touches[0].pageX < snake.x && snake.dx === 0) {
+        snake.dx = -grid;
+        snake.dy = 0;
+    } else if (evt.touches[0].pageY < snake.y && snake.dy === 0) {
+        snake.dx = 0;
+        snake.dy = -grid;
+    } else if (evt.touches[0].pageX > snake.x && snake.dx === 0) {
+        snake.dx = grid;
+        snake.dy = 0;
+    } else if (evt.touches[0].pageY > snake.y && snake.dy === 0) {
         snake.dx = 0;
         snake.dy = grid;
     }
