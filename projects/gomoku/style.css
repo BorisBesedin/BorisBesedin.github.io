@@ -17,8 +17,8 @@ body {
 .cell {
     position: relative;
     border: 2px solid Sienna;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     text-align: center;
     vertical-align: middle;
     font-size: 35px;
@@ -39,20 +39,10 @@ body {
     background-image: url('img/o.png');
 }
 
-.win::after,
-.win::before {
-   position: absolute;
-   content: "";
-   top: 15px;
-   left: 8px;
-   width: 50%;
-   height: 8px;
-   background-color: #000;
+.win {
+   background-color: Peru;
 }
 
-.win::before {
-    transform: rotate(-90deg);
-}
 
 table {
     border-collapse: collapse;
@@ -62,6 +52,8 @@ table {
 .game-status {
     margin-top: 20px;
     margin-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -129,4 +121,24 @@ table {
     font-size: 50px;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+@media (max-width: 550px) {
+    body {
+        justify-content: start;
+    }
+    .cell {
+        width: 20px;
+        height: 20px;
+    }
+
+    .game-status {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .replay-btn {
+        margin-left: 0;
+    }
 }

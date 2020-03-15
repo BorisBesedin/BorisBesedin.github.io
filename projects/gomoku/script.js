@@ -160,6 +160,3 @@ function replay() {
 }
 
 replayBtn.addEventListener('click', replay);
-
-
-
