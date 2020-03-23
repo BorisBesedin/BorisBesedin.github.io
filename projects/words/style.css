@@ -8,7 +8,7 @@ body {
     height: 100vh;
     width: 100%;
     background-color: Thistle;
-    font-family: 'Baloo Da 2', cursive;
+    font-family: 'Roboto', sans-serif;
 }
 
 .app {
@@ -38,7 +38,7 @@ body {
 .menu {
     position: absolute;
     top: -60px;
-    left: -10px;
+    left: 0;
 }
 
 .results-text {
@@ -67,10 +67,6 @@ body {
 .word-letter:active,
 .word:active {
    color: rgba(0, 0, 0, 0.3);
-}
-
-.new-word {
-    margin-top: 20px;
 }
 
 .new-word input {
@@ -122,20 +118,25 @@ body {
 }
 
 .new-word {
-    width: 350px;
+    margin-top: 40px;
+    width: 80%;
     display: flex;
     justify-content: space-evenly;
 }
 
 .btn {
+    width: 100px;
     padding: 10px;
-    margin-left: 10px;
-    font-family: 'Baloo Da 2', cursive;
+    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     cursor: pointer;
     border: 1px solid #a1a1a1;
     border-radius: 5px;
     transition: 0.3s ease-in;
+}
+
+.btn:not(:first-child) {
+    margin-left: 10px;
 }
 
 .btn:hover {
@@ -160,13 +161,18 @@ body {
     border-radius: 5px;
 }
 
+.word-description,
+.results-words {
+    margin-top: 10px;
+}
+
 .message {
     font-size: 18px;
 }
 
 .close-btn {
     margin-left: 0;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 @media (max-width: 620px) {
