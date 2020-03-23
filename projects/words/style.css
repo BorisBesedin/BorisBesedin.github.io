@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: Thistle;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+.app {
+    height: 100vh;
+    width: 600px;
+    margin: 0 auto;
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.menu {
+    position: absolute;
+    top: -60px;
+    left: -10px;
+}
+
+.results-text {
+    font-size: 18px;
+}
+
+.results-count {
+    font-size: 20px;
+}
+
+.word-letter {
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid #a1a1a1;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.word-letter:hover,
+.word:hover {
+    background-color: Lavender;
+}
+
+.word-letter:active,
+.word:active {
+   color: rgba(0, 0, 0, 0.3);
+}
+
+.new-word {
+    margin-top: 20px;
+}
+
+.new-word input {
+    width: 200px;
+    padding: 5px;
+    font-size: 20px;
+    border: 1px solid #a1a1a1;
+    border-radius: 5px;
+}
+
+.words {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #ffffff;
+    text-align: left;
+}
+
+.words-count {
+    display: flex;
+    align-items: center;
+}
+
+.count {
+    font-size: 24px;
+    margin-left: 30px;
+}
+
+.words-title {
+    margin-left: 40px;
+    border-bottom: 1px solid #000;
+}
+
+.words-list {
+    margin-top: 20px;
+    list-style: none;  
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.word {
+    padding: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #a1a1a1;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.new-word {
+    width: 350px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn {
+    padding: 10px;
+    margin-left: 10px;
+    font-family: 'Baloo Da 2', cursive;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid #a1a1a1;
+    border-radius: 5px;
+    transition: 0.3s ease-in;
+}
+
+.btn:hover {
+    background-color: Plum;
+    color: #ffffff;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px 0 #000000;
+    width: 300px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.message {
+    font-size: 18px;
+}
+
+.close-btn {
+    margin-left: 0;
+    margin-top: 20px;
+}
+
+@media (max-width: 620px) {
+    .app {
+        width: 300px;
+    }
+
+    .new-word {
+        margin-top: 40px;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .new-word input {
+        width: 80%;
+    }
+
+    .new-word-btns {
+        margin-top: 20px;
+    }
+
+    .word-letter {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .words-title {
+        margin-left: 0;
+    }
+}
