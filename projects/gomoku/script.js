@@ -2133,6 +2133,7 @@ window.addEventListener('DOMContentLoaded', function () {
     rows: 15,
     winCombo: '+++++',
     isPlaying: true,
+    gameOver: false,
     currentPlayer: 'x',
     prevTakeX: '',
     prevTakeO: ''
@@ -2182,7 +2183,7 @@ var AI = function AI(state) {
         horizontal = document.querySelectorAll(".cell[data-row=\"".concat(row, "\"]")),
         vertical = document.querySelectorAll(".cell[data-col=\"".concat(col, "\"]")),
         player;
-    var combos = ['-xxx-', '-xxxx-', '-xxxx', 'xxxx-', '-xxx', 'xxx-', '-xx-', '-x-', '-x', 'x-'];
+    var combos = ['-x-', '-xx-', '-xxx-', '-xxxx', 'xxxx-', 'xx-x', 'xx-xx', 'x-xx', 'x-xxx', 'xxx-x'];
 
     if (prevCell === state.prevTakeX) {
       player = 'x';
@@ -2232,75 +2233,73 @@ var AI = function AI(state) {
       elems.forEach(function (item) {
         if (item.classList.contains(player)) {
           line += 'x';
+        } else if (item.className !== 'cell') {
+          line += '0';
         } else {
           line += '-';
         }
       });
+      console.log(line);
 
-      function getPossibleMoves(line, combo, priority) {
-        var moves = [];
+      function getMovesAndPriority(line, combo, priority) {
+        var moves = [],
+            length = line.indexOf(combo) + combo.length;
+        elems.forEach(function (item, i) {
+          if (i >= line.indexOf(combo) && i <= length && item.className === 'cell') {
+            moves.push(item);
+          }
+        });
+        moves.forEach(function (item, i) {
+          if (!item.getAttribute('data-priority')) {}
 
-        if (combo === '-xxx-' || combo === '-xxxx-' || combo === '-xx-' || combo === '-x-') {
-          var elem1 = elems[line.indexOf(combo)],
-              elem2 = elems[line.indexOf(combo) + (combo.length - 1)];
-          moves.push(elem1);
-          moves.push(elem2);
-          moves.forEach(function (item) {
-            return item.setAttribute('data-priority', priority);
-          });
-        }
+          item.setAttribute('data-priority', priority);
 
-        if (combo === '-xxx' || combo === '-xxxx' || combo === '-xx' || combo === '-x') {
-          var _elem = elems[line.indexOf(combo)];
-          moves.push(_elem);
-          moves.forEach(function (item) {
-            return item.setAttribute('data-priority', priority);
-          });
-        }
-
-        if (combo === 'xxx-' || combo === 'xxxx-' || combo === 'xx-' || combo === 'x-') {
-          var _elem2 = elems[line.indexOf(combo) + (combo.length - 1)];
-          moves.push(_elem2);
-          moves.forEach(function (item) {
-            return item.setAttribute('data-priority', priority);
-          });
-        }
-
+          if (combo === 'x-xx' || combo === 'xx-x' || combo === 'xx-xx' || combo === 'x-xxx' || combo === 'xxx-x' || combo === 'xxxx-' || combo === '-xxxx') {
+            moves[0].setAttribute('data-priority', '8');
+          }
+        });
         return moves;
       }
 
-      combos.forEach(function (item, i) {
+      combos.forEach(function (item) {
         if (line.includes(item)) {
           switch (item) {
+            case '-x-':
+              console.log('pidor');
+              possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '1'));
+              break;
+
+            case '-xx-':
+              if (player === 'x') {
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '2'));
+              } else {
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '3'));
+              }
+
+              break;
+
             case '-xxx-':
               if (player === 'x') {
-                possibleMoves = possibleMoves.concat(getPossibleMoves(line, item, '8'));
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '4'));
               } else {
-                possibleMoves = possibleMoves.concat(getPossibleMoves(line, item, '7'));
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '5'));
               }
 
               break;
 
-            case '-xxxx-' || false || false:
+            case '-xxxx':
+            case 'xxxx-':
+            case 'x-xx':
+            case 'xx-xx':
+            case 'xxx-x':
+            case 'x-xxx':
+            case 'xx-x':
               if (player === 'x') {
-                possibleMoves = possibleMoves.concat(getPossibleMoves(line, item, '9'));
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '6'));
               } else {
-                possibleMoves = possibleMoves.concat(getPossibleMoves(line, item, '10'));
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '7'));
               }
 
-              break;
-
-            case '-xx-' || false || false:
-              if (player === 'x') {
-                possibleMoves = possibleMoves.concat(getPossibleMoves(line, item, '5'));
-              } else {
-                possibleMoves = possibleMoves.concat(getPossibleMoves(line, item, '6'));
-              }
-
-              break;
-
-            case '-x-' || false || false:
-              possibleMoves = possibleMoves.concat(getPossibleMoves(line, item, '5'));
               break;
           }
         }
@@ -2314,15 +2313,16 @@ var AI = function AI(state) {
   var moves = checkCellsForTurn(state.prevTakeX);
 
   if (state.prevTakeO) {
-    moves = checkCellsForTurn(state.prevTakeX).concat(checkCellsForTurn(state.prevTakeO));
+    moves = moves.concat(checkCellsForTurn(state.prevTakeO));
   }
 
   moves.sort(function (a, b) {
-    return b.getAttribute('data-priority') - a.getAttribute('data-priority');
+    return +b.getAttribute('data-priority') - +a.getAttribute('data-priority');
   });
-  return moves.filter(function (item) {
-    return item.className === 'cell';
+  var priorityMoves = moves.filter(function (a, b) {
+    return a.getAttribute('data-priority') === moves[0].getAttribute('data-priority');
   });
+  return priorityMoves;
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AI);
@@ -2433,7 +2433,7 @@ var gameMechanic = function gameMechanic(state) {
         close = document.querySelector('.close');
     popup.style.display = 'flex';
     winner.textContent = state.currentPlayer;
-    state.isPlaying = false;
+    state.gameOver = true;
 
     if (state.currentPlayer === 'x') {
       winner.style.color = 'red';
@@ -2448,27 +2448,27 @@ var gameMechanic = function gameMechanic(state) {
 
   cells.forEach(function (cell) {
     cell.addEventListener('click', function () {
-      if (!cell.classList.contains('x') && !cell.classList.contains('o') && state.isPlaying === true) {
+      if (cell.className === 'cell' && state.isPlaying === true && state.gameOver === false) {
         cell.classList.add(state.currentPlayer);
+        state.isPlaying = false;
         checkCellsForWin(cell, state.currentPlayer);
 
         if (state.currentPlayer === 'x') {
           currentPlayer.textContent = 'o';
           currentPlayer.style.color = 'green';
           state.currentPlayer = 'o';
-          state.isPlaying = false;
           state.prevTakeX = cell;
           setTimeout(function () {
             var moveAI = Object(_AI__WEBPACK_IMPORTED_MODULE_5__["default"])(state);
             state.isPlaying = true;
             moveAI[0].click();
-          }, 500);
+          }, 200);
         } else {
           currentPlayer.textContent = 'x';
           currentPlayer.style.color = 'red';
           state.currentPlayer = 'x';
-          state.isPlaying = true;
           state.prevTakeO = cell;
+          state.isPlaying = true;
         }
       }
     });
@@ -2540,6 +2540,7 @@ var replay = function replay(state) {
   function replay() {
     state.currentPlayer = 'x';
     state.isPlaying = true;
+    state.gameOver = false;
     state.prevTake = '';
     currentPlayer.textContent = 'x';
     currentPlayer.style.color = 'red';
