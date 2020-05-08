@@ -2183,7 +2183,12 @@ var AI = function AI(state) {
         horizontal = document.querySelectorAll(".cell[data-row=\"".concat(row, "\"]")),
         vertical = document.querySelectorAll(".cell[data-col=\"".concat(col, "\"]")),
         player;
-    var combos = ['-x-', '-xx-', '-xxx-', '-xxxx', 'xxxx-', 'xx-x', 'xx-xx', 'x-xx', 'x-xxx', 'xxx-x'];
+    var combos = ['--x--', '--x0-', '-0x--', 'x----', '----x', // priority 1
+    '-0xx-', '-xx0-', // priority 2
+    '-xx--', 'xxx--', // priority 3/4
+    '--xx-', '--xxx', '-xxx-', // priority 3/4/4
+    '-xxxx', 'x-xxx', 'xx-xx', 'xxx-x', 'xxxx-' // priority 5
+    ];
 
     if (prevCell === state.prevTakeX) {
       player = 'x';
@@ -2243,33 +2248,84 @@ var AI = function AI(state) {
 
       function getMovesAndPriority(line, combo, priority) {
         var moves = [],
-            length = line.indexOf(combo) + combo.length;
-        elems.forEach(function (item, i) {
-          if (i >= line.indexOf(combo) && i <= length && item.className === 'cell') {
-            moves.push(item);
-          }
-        });
-        moves.forEach(function (item, i) {
-          if (!item.getAttribute('data-priority')) {}
+            comboIndex = line.indexOf(combo),
+            length = comboIndex + (combo.length - 1);
 
-          item.setAttribute('data-priority', priority);
+        switch (combo) {
+          case '--x--':
+          case '--x0-':
+          case '-0x--':
+          case '----x':
+            elems.forEach(function (item, i) {
+              if (i >= comboIndex && i <= length && item.className === 'cell') {
+                moves.push(item);
+              }
+            });
+            var elem1 = moves[combo.indexOf('x') - 1],
+                elem2 = moves[combo.indexOf('x') + 1];
 
-          if (combo === 'x-xx' || combo === 'xx-x' || combo === 'xx-xx' || combo === 'x-xxx' || combo === 'xxx-x' || combo === 'xxxx-' || combo === '-xxxx') {
-            moves[0].setAttribute('data-priority', '8');
-          }
-        });
+            if (elem1) {
+              elem1.setAttribute('data-priority', priority);
+            } else if (elem2) {
+              elem2.setAttribute('data-priority', priority);
+            }
+
+            break;
+
+          case '-0xx-':
+          case '-xx0-':
+            elems.forEach(function (item, i) {
+              if (i >= comboIndex && i <= length && item.className === 'cell') {
+                moves.push(item);
+              }
+            });
+            moves[Math.floor(Math.random() * Math.floor(1))].setAttribute('data-priority', priority);
+            break;
+
+          case '--xx-':
+          case '--xxx':
+          case '-xxx-':
+          case '-xx--':
+          case 'xxx--':
+            elems.forEach(function (item, i) {
+              if (i >= comboIndex && i <= length && item.className === 'cell') {
+                moves.push(item);
+              }
+            });
+            moves[1].setAttribute('data-priority', priority);
+            break;
+
+          case '-xxxx':
+          case 'x-xxx':
+          case 'xx-xx':
+          case 'xxx-x':
+          case 'xxxx-':
+          case 'x----':
+            elems.forEach(function (item, i) {
+              if (i >= comboIndex && i <= length && item.className === 'cell') {
+                moves.push(item);
+              }
+            });
+            moves[0].setAttribute('data-priority', priority);
+            break;
+        }
+
         return moves;
       }
 
       combos.forEach(function (item) {
         if (line.includes(item)) {
           switch (item) {
-            case '-x-':
-              console.log('pidor');
+            case '--x--':
+            case '--x0-':
+            case '-0x--':
+            case 'x----':
+            case '----x':
               possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '1'));
               break;
 
-            case '-xx-':
+            case '-0xx-':
+            case '-xx0-':
               if (player === 'x') {
                 possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '2'));
               } else {
@@ -2278,7 +2334,8 @@ var AI = function AI(state) {
 
               break;
 
-            case '-xxx-':
+            case '-xx--':
+            case '--xx-':
               if (player === 'x') {
                 possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '4'));
               } else {
@@ -2287,17 +2344,26 @@ var AI = function AI(state) {
 
               break;
 
-            case '-xxxx':
-            case 'xxxx-':
-            case 'x-xx':
-            case 'xx-xx':
-            case 'xxx-x':
-            case 'x-xxx':
-            case 'xx-x':
+            case '--xxx':
+            case '-xxx-':
+            case 'xxx--':
               if (player === 'x') {
                 possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '6'));
               } else {
                 possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '7'));
+              }
+
+              break;
+
+            case '-xxxx':
+            case 'x-xxx':
+            case 'xx-xx':
+            case 'xxx-x':
+            case 'xxxx-':
+              if (player === 'x') {
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '8'));
+              } else {
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '9'));
               }
 
               break;
@@ -2545,7 +2611,8 @@ var replay = function replay(state) {
     currentPlayer.textContent = 'x';
     currentPlayer.style.color = 'red';
     cells.forEach(function (cell) {
-      return cell.className = "cell";
+      cell.className = "cell";
+      cell.removeAttribute('data-priority');
     });
   }
 
