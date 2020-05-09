@@ -2027,6 +2027,67 @@ $({ target: 'Array', proto: true, forced: NEGATIVE_ZERO || !STRICT_METHOD || !US
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es.array.slice.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.slice.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
+var isArray = __webpack_require__(/*! ../internals/is-array */ "./node_modules/core-js/internals/is-array.js");
+var toAbsoluteIndex = __webpack_require__(/*! ../internals/to-absolute-index */ "./node_modules/core-js/internals/to-absolute-index.js");
+var toLength = __webpack_require__(/*! ../internals/to-length */ "./node_modules/core-js/internals/to-length.js");
+var toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ "./node_modules/core-js/internals/to-indexed-object.js");
+var createProperty = __webpack_require__(/*! ../internals/create-property */ "./node_modules/core-js/internals/create-property.js");
+var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
+var arrayMethodHasSpeciesSupport = __webpack_require__(/*! ../internals/array-method-has-species-support */ "./node_modules/core-js/internals/array-method-has-species-support.js");
+var arrayMethodUsesToLength = __webpack_require__(/*! ../internals/array-method-uses-to-length */ "./node_modules/core-js/internals/array-method-uses-to-length.js");
+
+var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('slice');
+var USES_TO_LENGTH = arrayMethodUsesToLength('slice', { ACCESSORS: true, 0: 0, 1: 2 });
+
+var SPECIES = wellKnownSymbol('species');
+var nativeSlice = [].slice;
+var max = Math.max;
+
+// `Array.prototype.slice` method
+// https://tc39.github.io/ecma262/#sec-array.prototype.slice
+// fallback for not array-like ES3 strings and DOM objects
+$({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT || !USES_TO_LENGTH }, {
+  slice: function slice(start, end) {
+    var O = toIndexedObject(this);
+    var length = toLength(O.length);
+    var k = toAbsoluteIndex(start, length);
+    var fin = toAbsoluteIndex(end === undefined ? length : end, length);
+    // inline `ArraySpeciesCreate` for usage native `Array#slice` where it's possible
+    var Constructor, result, n;
+    if (isArray(O)) {
+      Constructor = O.constructor;
+      // cross-realm fallback
+      if (typeof Constructor == 'function' && (Constructor === Array || isArray(Constructor.prototype))) {
+        Constructor = undefined;
+      } else if (isObject(Constructor)) {
+        Constructor = Constructor[SPECIES];
+        if (Constructor === null) Constructor = undefined;
+      }
+      if (Constructor === Array || Constructor === undefined) {
+        return nativeSlice.call(O, k, fin);
+      }
+    }
+    result = new (Constructor === undefined ? Array : Constructor)(max(fin - k, 0));
+    for (n = 0; k < fin; k++, n++) if (k in O) createProperty(result, n, O[k]);
+    result.length = n;
+    return result;
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.string.includes.js":
 /*!************************************************************!*\
   !*** ./node_modules/core-js/modules/es.string.includes.js ***!
@@ -2135,8 +2196,9 @@ window.addEventListener('DOMContentLoaded', function () {
     isPlaying: true,
     gameOver: false,
     currentPlayer: 'x',
-    prevTakeX: '',
-    prevTakeO: ''
+    prevTakeX: [],
+    prevTakeO: [],
+    allMoves: 0
   };
   Object(_modules_renderGameField__WEBPACK_IMPORTED_MODULE_0__["default"])(gameStatus);
   Object(_modules_replay__WEBPACK_IMPORTED_MODULE_1__["default"])(gameStatus);
@@ -2164,10 +2226,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_includes__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var core_js_modules_es_array_index_of__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.array.index-of */ "./node_modules/core-js/modules/es.array.index-of.js");
 /* harmony import */ var core_js_modules_es_array_index_of__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_index_of__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_es_string_includes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.string.includes */ "./node_modules/core-js/modules/es.string.includes.js");
-/* harmony import */ var core_js_modules_es_string_includes__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.array.slice */ "./node_modules/core-js/modules/es.array.slice.js");
+/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es_string_includes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.string.includes */ "./node_modules/core-js/modules/es.string.includes.js");
+/* harmony import */ var core_js_modules_es_string_includes__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -2182,15 +2247,15 @@ var AI = function AI(state) {
         row = prevCell.getAttribute("data-row"),
         horizontal = document.querySelectorAll(".cell[data-row=\"".concat(row, "\"]")),
         vertical = document.querySelectorAll(".cell[data-col=\"".concat(col, "\"]")),
-        player;
+        player = 'x';
     var combos = ['--x--', '--x0-', '-0x--', 'x----', '----x', // priority 1
     '-0xx-', '-xx0-', // priority 2
-    '-xx--', 'xxx--', // priority 3/4
-    '--xx-', '--xxx', '-xxx-', // priority 3/4/4
+    '-xx--', 'xxx--', '-x-x-', 'x-x-x', // priority 3/4
+    '--xx-', '--xxx', '-xxx-', '-x-xx', 'xx-x-', // priority 3/4/4
     '-xxxx', 'x-xxx', 'xx-xx', 'xxx-x', 'xxxx-' // priority 5
     ];
 
-    if (prevCell === state.prevTakeX) {
+    if (prevCell.classList.contains('x')) {
       player = 'x';
     } else {
       player = 'o';
@@ -2244,55 +2309,49 @@ var AI = function AI(state) {
           line += '-';
         }
       });
-      console.log(line);
 
       function getMovesAndPriority(line, combo, priority) {
         var moves = [],
             comboIndex = line.indexOf(combo),
             length = comboIndex + (combo.length - 1);
 
+        function getRandom(max) {
+          return Math.floor(Math.random() * Math.floor(max));
+        }
+
+        function setPriority(moveIndex) {
+          elems.forEach(function (item, i) {
+            if (i >= comboIndex && i <= length && item.className === 'cell') {
+              moves.push(item);
+            }
+          });
+
+          if (moves[moveIndex].getAttribute('data-priority') < priority) {
+            moves[moveIndex].setAttribute('data-priority', priority);
+          }
+        }
+
         switch (combo) {
           case '--x--':
           case '--x0-':
           case '-0x--':
-          case '----x':
-            elems.forEach(function (item, i) {
-              if (i >= comboIndex && i <= length && item.className === 'cell') {
-                moves.push(item);
-              }
-            });
-            var elem1 = moves[combo.indexOf('x') - 1],
-                elem2 = moves[combo.indexOf('x') + 1];
-
-            if (elem1) {
-              elem1.setAttribute('data-priority', priority);
-            } else if (elem2) {
-              elem2.setAttribute('data-priority', priority);
-            }
-
-            break;
-
-          case '-0xx-':
-          case '-xx0-':
-            elems.forEach(function (item, i) {
-              if (i >= comboIndex && i <= length && item.className === 'cell') {
-                moves.push(item);
-              }
-            });
-            moves[Math.floor(Math.random() * Math.floor(1))].setAttribute('data-priority', priority);
-            break;
-
           case '--xx-':
           case '--xxx':
           case '-xxx-':
           case '-xx--':
-          case 'xxx--':
-            elems.forEach(function (item, i) {
-              if (i >= comboIndex && i <= length && item.className === 'cell') {
-                moves.push(item);
-              }
-            });
-            moves[1].setAttribute('data-priority', priority);
+          case '-x-x-':
+          case '-x-xx':
+          case 'xx-x-':
+            setPriority(1);
+            break;
+
+          case '----x':
+            setPriority(3);
+            break;
+
+          case '-0xx-':
+          case '-xx0-':
+            setPriority(getRandom(2));
             break;
 
           case '-xxxx':
@@ -2301,12 +2360,9 @@ var AI = function AI(state) {
           case 'xxx-x':
           case 'xxxx-':
           case 'x----':
-            elems.forEach(function (item, i) {
-              if (i >= comboIndex && i <= length && item.className === 'cell') {
-                moves.push(item);
-              }
-            });
-            moves[0].setAttribute('data-priority', priority);
+          case 'xxx--':
+          case 'x-x-x':
+            setPriority(0);
             break;
         }
 
@@ -2336,6 +2392,7 @@ var AI = function AI(state) {
 
             case '-xx--':
             case '--xx-':
+            case '-x-x-':
               if (player === 'x') {
                 possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '4'));
               } else {
@@ -2345,12 +2402,23 @@ var AI = function AI(state) {
               break;
 
             case '--xxx':
-            case '-xxx-':
             case 'xxx--':
+            case 'x-x-x':
               if (player === 'x') {
                 possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '6'));
               } else {
                 possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '7'));
+              }
+
+              break;
+
+            case '-xxx-':
+            case '-x-xx':
+            case 'xx-x-':
+              if (player === 'x') {
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '7'));
+              } else {
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '8'));
               }
 
               break;
@@ -2361,9 +2429,9 @@ var AI = function AI(state) {
             case 'xxx-x':
             case 'xxxx-':
               if (player === 'x') {
-                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '8'));
-              } else {
                 possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '9'));
+              } else {
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '10'));
               }
 
               break;
@@ -2376,10 +2444,28 @@ var AI = function AI(state) {
     return checkLine(horizontal).concat(checkLine(vertical)).concat(checkLine(getDiagonal('toRightUp'))).concat(checkLine(getDiagonal('toRightDown')));
   };
 
-  var moves = checkCellsForTurn(state.prevTakeX);
+  var prevMovesX = state.prevTakeX,
+      prevMovesO = state.prevTakeO;
+  var moves = [];
 
-  if (state.prevTakeO) {
-    moves = moves.concat(checkCellsForTurn(state.prevTakeO));
+  function checkPrevMoves(prevMovesArr) {
+    var arr = prevMovesArr;
+
+    if (prevMovesArr.length > 2) {
+      arr = prevMovesArr.slice(prevMovesArr.length - 2, prevMovesArr.length);
+    }
+
+    arr.forEach(function (item) {
+      moves = moves.concat(checkCellsForTurn(item));
+    });
+  }
+
+  if (prevMovesX) {
+    checkPrevMoves(prevMovesX);
+  }
+
+  if (prevMovesO) {
+    checkPrevMoves(prevMovesO);
   }
 
   moves.sort(function (a, b) {
@@ -2523,7 +2609,8 @@ var gameMechanic = function gameMechanic(state) {
           currentPlayer.textContent = 'o';
           currentPlayer.style.color = 'green';
           state.currentPlayer = 'o';
-          state.prevTakeX = cell;
+          state.prevTakeX.push(cell);
+          state.allMoves++;
           setTimeout(function () {
             var moveAI = Object(_AI__WEBPACK_IMPORTED_MODULE_5__["default"])(state);
             state.isPlaying = true;
@@ -2533,7 +2620,7 @@ var gameMechanic = function gameMechanic(state) {
           currentPlayer.textContent = 'x';
           currentPlayer.style.color = 'red';
           state.currentPlayer = 'x';
-          state.prevTakeO = cell;
+          state.prevTakeO.push(cell);
           state.isPlaying = true;
         }
       }
@@ -2607,7 +2694,8 @@ var replay = function replay(state) {
     state.currentPlayer = 'x';
     state.isPlaying = true;
     state.gameOver = false;
-    state.prevTake = '';
+    state.prevTakeX = [];
+    state.prevTakeO = [];
     currentPlayer.textContent = 'x';
     currentPlayer.style.color = 'red';
     cells.forEach(function (cell) {
