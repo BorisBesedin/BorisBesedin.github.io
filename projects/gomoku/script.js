@@ -2248,12 +2248,7 @@ var AI = function AI(state) {
         horizontal = document.querySelectorAll(".cell[data-row=\"".concat(row, "\"]")),
         vertical = document.querySelectorAll(".cell[data-col=\"".concat(col, "\"]")),
         player = 'x';
-    var combos = ['--x--', '--x0-', '-0x--', 'x----', '----x', // priority 1
-    '-0xx-', '-xx0-', // priority 2
-    '-xx--', 'xxx--', '-x-x-', 'x-x-x', // priority 3/4
-    '--xx-', '--xxx', '-xxx-', '-x-xx', 'xx-x-', // priority 3/4/4
-    '-xxxx', 'x-xxx', 'xx-xx', 'xxx-x', 'xxxx-' // priority 5
-    ];
+    var combos = ['--x--', '--x0-', '-0x--', 'x----', '----x', '-0xx-', '-xx0-', '-xx--', '0xxx-', '-x-x-', 'x-x-x', '-xxxx-', '--xx-', '-xxx0', '-xxx-', '-x-xx', 'xx-x-', '-xxxx0', 'x-xxx', 'xx-xx', 'xxx-x', '0xxxx-'];
 
     if (prevCell.classList.contains('x')) {
       player = 'x';
@@ -2326,7 +2321,7 @@ var AI = function AI(state) {
             }
           });
 
-          if (moves[moveIndex].getAttribute('data-priority') < priority) {
+          if (+moves[moveIndex].getAttribute('data-priority') < +priority) {
             moves[moveIndex].setAttribute('data-priority', priority);
           }
         }
@@ -2336,7 +2331,6 @@ var AI = function AI(state) {
           case '--x0-':
           case '-0x--':
           case '--xx-':
-          case '--xxx':
           case '-xxx-':
           case '-xx--':
           case '-x-x-':
@@ -2351,17 +2345,19 @@ var AI = function AI(state) {
 
           case '-0xx-':
           case '-xx0-':
+          case '-xxxx-':
             setPriority(getRandom(2));
             break;
 
-          case '-xxxx':
+          case '-xxxx0':
           case 'x-xxx':
           case 'xx-xx':
           case 'xxx-x':
-          case 'xxxx-':
+          case '0xxxx-':
           case 'x----':
-          case 'xxx--':
+          case '0xxx-':
           case 'x-x-x':
+          case '-xxx0':
             setPriority(0);
             break;
         }
@@ -2392,7 +2388,6 @@ var AI = function AI(state) {
 
             case '-xx--':
             case '--xx-':
-            case '-x-x-':
               if (player === 'x') {
                 possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '4'));
               } else {
@@ -2401,9 +2396,9 @@ var AI = function AI(state) {
 
               break;
 
-            case '--xxx':
-            case 'xxx--':
-            case 'x-x-x':
+            case '-xxx0':
+            case '0xxx-':
+            case '-x-x-':
               if (player === 'x') {
                 possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '6'));
               } else {
@@ -2415,23 +2410,25 @@ var AI = function AI(state) {
             case '-xxx-':
             case '-x-xx':
             case 'xx-x-':
+            case 'x-x-x':
               if (player === 'x') {
-                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '7'));
-              } else {
                 possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '8'));
+              } else {
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '9'));
               }
 
               break;
 
-            case '-xxxx':
+            case '-xxxx0':
             case 'x-xxx':
             case 'xx-xx':
             case 'xxx-x':
-            case 'xxxx-':
+            case '0xxxx-':
+            case '-xxxx-':
               if (player === 'x') {
-                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '9'));
-              } else {
                 possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '10'));
+              } else {
+                possibleMoves = possibleMoves.concat(getMovesAndPriority(line, item, '11'));
               }
 
               break;
