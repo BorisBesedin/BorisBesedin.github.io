@@ -1,4 +1,7 @@
+import smoothscroll from 'smoothscroll-polyfill';
+
 const scroll = () => {
+	smoothscroll.polyfill();
 	const scrollTo = function (element) {
 		let coord = element.offsetTop;
 

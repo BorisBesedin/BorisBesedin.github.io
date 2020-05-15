@@ -5,11 +5,8 @@ const forms = () => {
 
     const message = {
         success: 'Спасибо! Скоро мы вам перезвоним!',
-        failure: 'Что-то пошло не так',
-        loading: 'Загрузка',
-        spinner: 'assets/img/spinner.gif',
-        ok: 'assets/img/ok.png',
-        fail: 'assets/img/fail.png',
+        failure: 'Упс! Не сработало.',
+        loading: 'Загрузка'
     };
 
     const path = 'server.php';
@@ -54,6 +51,7 @@ const forms = () => {
             })
             .catch(() => {
                 statusText.textContent = message.failure;
+                statusMessage.classList.add('fadeIn'); 
             })
             .finally(() => {
                 clearInputs();
