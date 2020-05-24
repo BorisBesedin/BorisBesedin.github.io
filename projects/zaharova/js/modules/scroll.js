@@ -12,15 +12,24 @@ const scroll = () => {
 	};
 
 	const setScroll = function (triggerSelector) {
-		let triggers = document.querySelectorAll(triggerSelector);
+		let triggers = document.querySelectorAll(triggerSelector),
+			timeout = 400;
 
 		triggers.forEach(item => {
 			item.addEventListener('click', (e) => {
 				e.preventDefault();
+
+				if (document.body.offsetWidth >= 960) {
+					timeout = 0;
+				} else {
+					timeout = 400;
+				}
+
 				let element = document.querySelector(`.${item.getAttribute('data-scrollid')}`);
+
 				setTimeout(() => {
 					scrollTo(element);
-				}, 400);
+				}, timeout);
 				
 			});
 		});

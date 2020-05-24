@@ -5,31 +5,29 @@ const menu = () => {
 		menuItems = document.querySelectorAll('.navigation__link');
 
 	toggle.addEventListener('click', () => {
-		if (menu.classList.contains('navigation--opened')) {
-			toggle.classList.remove('rotate-left');
-			toggle.classList.add('rotate-right');
+		if (document.body.offsetWidth < 960) {
+			if (menu.classList.contains('navigation--opened')) {
+				toggle.classList.remove('rotate-left');
+				toggle.classList.add('rotate-right');	
 
-			menuList.classList.remove('slide-left');
-			menuList.classList.add('slide-right');
-			
-			
-
-			setTimeout(() => {
-				menu.classList.remove('navigation--opened');
-				menu.classList.add('navigation--closed');
+				setTimeout(() => {
+					menu.classList.remove('navigation--opened');
+					menu.classList.add('navigation--closed');
+					
+				}, 350);
 				
-			}, 350);
-			
-		} else if (menu.classList.contains('navigation--closed')) {
-			menu.classList.remove('navigation--closed');
-			menu.classList.add('navigation--opened');
+			} else if (menu.classList.contains('navigation--closed')) {
+				menu.classList.remove('navigation--closed');
+				menu.classList.add('navigation--opened');
 
-			toggle.classList.remove('rotate-right');
-			toggle.classList.add('rotate-left');
+				toggle.classList.remove('rotate-right');
+				toggle.classList.add('rotate-left');
 
-			menuList.classList.remove('slide-right');
-			menuList.classList.add('slide-left');
+				menuList.classList.remove('slide-right');
+				menuList.classList.add('slide-left');
+			}
 		}
+		
 	});
 
 	menuItems.forEach(item => {

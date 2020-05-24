@@ -92,17 +92,19 @@
 				<div class="about__image">
 					<img src="img/about-img.png" alt="super-master">
 				</div>
-				<h3 class="about__title">
-					Всем Hello! Я Таня, и у меня чёрный пояс по депиляции.⠀
-				</h3>
-				<ul class="about__description">
-					<li class="about__item">Мне 29 лет.</li>
-					<li class="about__item">Я замужем.</li>
-					<li class="about__item">С 2014 занимаюсь красотой ваших тел - депиляция и массаж.</li>
-					<li class="about__item">Я закончила КузГПА по профессии логопед</li>
-					<li class="about__item">До сих пор продолжаю работать по специальности</li>
-					<li class="about__item">Массаж пришёл ко мне в 2018 году</li>
-				</ul>
+				<div class="about__container">
+					<h3 class="about__title">
+						Всем Hello! Я Таня, и у меня чёрный пояс по депиляции.⠀
+					</h3>
+					<ul class="about__description">
+						<li class="about__item">Мне 29 лет.</li>
+						<li class="about__item">Я замужем.</li>
+						<li class="about__item">С 2014 занимаюсь красотой ваших тел - депиляция и массаж.</li>
+						<li class="about__item">Я закончила КузГПА по профессии логопед</li>
+						<li class="about__item">До сих пор продолжаю работать по специальности</li>
+						<li class="about__item">Массаж пришёл ко мне в 2018 году</li>
+					</ul>
+				</div>					
 			</div>
 		</section>
 
@@ -159,7 +161,7 @@
 		<section class="price">
 			<div class="wrapper">
 				<h2 class="price__title title">Цены</h2>
-				<div class="price__slider slider">
+				<div class="price__slider slider slider--desktop">
 					<div class="slider__controls">
 						<button class="slider__button slider__prev price__prev">
 							<span class="visually-hidden">Назад</span>
@@ -170,48 +172,23 @@
 					</div>
 					<ul class="slider__slides price__slides">
 						<li class="slider__slide price__slide">
-							<h3 class="slider__title">Депиляция <br> Сахар и воск</h3>
+							<h3 class="slider__title">Кавитация</h3>
 							<div class="slider__content">
 								<ul class="price__slider-list price-list">
 									<li class="price-list__item">
-										<span class="price-list__name">Глубокое бикини</span>
+										<span class="price-list__name">20 минут</span>
+										<span class="price-list__price">400 р.</span>
+									</li>
+
+									<li class="price-list__item">
+										<span class="price-list__name">40 минут</span>
 										<span class="price-list__price">800 р.</span>
 									</li>
 
 									<li class="price-list__item">
-										<span class="price-list__name">Классическое бикини</span>
-										<span class="price-list__price">500 р.</span>
-									</li>
-
-									<li class="price-list__item">
-										<span class="price-list__name">Подмышечные впадины</span>
-										<span class="price-list__price">200 р.</span>
-									</li>
-
-									<li class="price-list__item">
-										<span class="price-list__name">Ножки полностью</span>
-										<span class="price-list__price">900 р.</span>
-									</li>
-
-									<li class="price-list__item">
-										<span class="price-list__name">Голень</span>
-										<span class="price-list__price">500 р.</span>
-									</li>
-
-									<li class="price-list__item">
-										<span class="price-list__name">Бедро</span>
-										<span class="price-list__price">500 р.</span>
-									</li>
-
-									<li class="price-list__item">
-										<span class="price-list__name">Лицо (одна зона)</span>
-										<span class="price-list__price">200 р.</span>
-									</li>
-
-									<li class="price-list__item">
-										<span class="price-list__name">Лицо полностью</span>
-										<span class="price-list__price">400 р.</span>
-									</li>
+										<span class="price-list__name">60 минут</span>
+										<span class="price-list__price">1 000 р.</span>
+									</li>											
 								</ul>
 							</div>
 						</li>
@@ -263,26 +240,51 @@
 									</li>											
 								</ul>
 							</div>
-						</li>
+						</li>						
 
 						<li class="slider__slide price__slide">
-							<h3 class="slider__title">Кавитация</h3>
+							<h3 class="slider__title">Депиляция <br> Сахар и воск</h3>
 							<div class="slider__content">
 								<ul class="price__slider-list price-list">
 									<li class="price-list__item">
-										<span class="price-list__name">20 минут</span>
-										<span class="price-list__price">400 р.</span>
-									</li>
-
-									<li class="price-list__item">
-										<span class="price-list__name">40 минут</span>
+										<span class="price-list__name">Глубокое бикини</span>
 										<span class="price-list__price">800 р.</span>
 									</li>
 
 									<li class="price-list__item">
-										<span class="price-list__name">60 минут</span>
-										<span class="price-list__price">1 000 р.</span>
-									</li>											
+										<span class="price-list__name">Классическое бикини</span>
+										<span class="price-list__price">500 р.</span>
+									</li>
+
+									<li class="price-list__item">
+										<span class="price-list__name">Подмышечные впадины</span>
+										<span class="price-list__price">200 р.</span>
+									</li>
+
+									<li class="price-list__item">
+										<span class="price-list__name">Ножки полностью</span>
+										<span class="price-list__price">900 р.</span>
+									</li>
+
+									<li class="price-list__item">
+										<span class="price-list__name">Голень</span>
+										<span class="price-list__price">500 р.</span>
+									</li>
+
+									<li class="price-list__item">
+										<span class="price-list__name">Бедро</span>
+										<span class="price-list__price">500 р.</span>
+									</li>
+
+									<li class="price-list__item">
+										<span class="price-list__name">Лицо (одна зона)</span>
+										<span class="price-list__price">200 р.</span>
+									</li>
+
+									<li class="price-list__item">
+										<span class="price-list__name">Лицо полностью</span>
+										<span class="price-list__price">400 р.</span>
+									</li>
 								</ul>
 							</div>
 						</li>
@@ -291,44 +293,46 @@
 			</div>
 		</section>
 
-		<section class="sale">
-			<div class="wrapper">
-				<h2 class="sale__title title">Акции</h2>
-				<ul class="sale__list">
-					<li class="sale__item order-button">
-						<div class="sale__container">
-							<div class="sale__image"></div>
-							<p class="sale__description">Скидка на первую процедуру
-							депиляции -20%</p> 
-						</div>
-						
-						<span>Жми, чтобы записаться скорей!</span>
-					</li>
+		<div class="container">
+			<section class="sale">
+				<div class="wrapper">
+					<h2 class="sale__title title">Акции</h2>
+					<ul class="sale__list">
+						<li class="sale__item order-button">
+							<div class="sale__container">
+								<div class="sale__image"></div>
+								<p class="sale__description">Скидка на первую процедуру
+								депиляции -20%</p> 
+							</div>
+							
+							<span>Жми, чтобы записаться скорей!</span>
+						</li>
 
-					<li class="sale__item order-button">
-						<div class="sale__container">
-							<div class="sale__image"></div>
-							<p class="sale__description">Первый сеанс массажа и составление индивидуальной программы 500р</p>
-						</div>
-						<span>Жми, чтобы записаться скорей!</span>
-					</li>
-				</ul>
-			</div>
-		</section>
-
-		<section class="contacts">			
-			<div class="wrapper">
-				<h2 class="contacts__title title">Контакты</h2>
-				<div class="contacts__container">
-					<p class="contacts__adress">г. Новокузнецк, <br> Франкфурта, 5</p>
-					<a href="tel:+79235111555" class="contacts__phone">+7 (923) 511 15 55</a>
-					<div class="contacts__map">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2358.6408384406564!2d87.1508769505235!3d53.76027815122967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x42d0c16ce0775ac7%3A0x1c09553194a22e0c!2z0YPQuy4g0KTRgNCw0L3QutGE0YPRgNGC0LAsIDUsINCd0L7QstC-0LrRg9C30L3QtdGG0LosINCa0LXQvNC10YDQvtCy0YHQutCw0Y8g0L7QsdC7LiwgNjU0MDgw!5e0!3m2!1sru!2sru!4v1590038416170!5m2!1sru!2sru" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-					</div>
-					<button class="order-button button contacts__button">Записаться</button>
+						<li class="sale__item order-button">
+							<div class="sale__container">
+								<div class="sale__image"></div>
+								<p class="sale__description">Первый сеанс массажа и составление индивидуальной программы 500р</p>
+							</div>
+							<span>Жми, чтобы записаться скорей!</span>
+						</li>
+					</ul>
 				</div>
-			</div>
-		</section>
+			</section>
+
+			<section class="contacts">			
+				<div class="wrapper">
+					<h2 class="contacts__title title">Контакты</h2>
+					<div class="contacts__container">
+						<p class="contacts__adress">г. Новокузнецк, <br> Франкфурта, 5</p>
+						<a href="tel:+79235111555" class="contacts__phone">+7 (923) 511 15 55</a>
+						<div class="contacts__map">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2358.6408384406564!2d87.1508769505235!3d53.76027815122967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x42d0c16ce0775ac7%3A0x1c09553194a22e0c!2z0YPQuy4g0KTRgNCw0L3QutGE0YPRgNGC0LAsIDUsINCd0L7QstC-0LrRg9C30L3QtdGG0LosINCa0LXQvNC10YDQvtCy0YHQutCw0Y8g0L7QsdC7LiwgNjU0MDgw!5e0!3m2!1sru!2sru!4v1590038416170!5m2!1sru!2sru" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+						</div>
+						<button class="order-button button contacts__button">Записаться</button>
+					</div>
+				</div>
+			</section>
+		</div>
 	</main>
 
 	<footer class="page-footer">

@@ -4871,22 +4871,22 @@ var menu = function menu() {
       menuList = document.querySelector('.navigation__list'),
       menuItems = document.querySelectorAll('.navigation__link');
   toggle.addEventListener('click', function () {
-    if (menu.classList.contains('navigation--opened')) {
-      toggle.classList.remove('rotate-left');
-      toggle.classList.add('rotate-right');
-      menuList.classList.remove('slide-left');
-      menuList.classList.add('slide-right');
-      setTimeout(function () {
-        menu.classList.remove('navigation--opened');
-        menu.classList.add('navigation--closed');
-      }, 350);
-    } else if (menu.classList.contains('navigation--closed')) {
-      menu.classList.remove('navigation--closed');
-      menu.classList.add('navigation--opened');
-      toggle.classList.remove('rotate-right');
-      toggle.classList.add('rotate-left');
-      menuList.classList.remove('slide-right');
-      menuList.classList.add('slide-left');
+    if (document.body.offsetWidth < 960) {
+      if (menu.classList.contains('navigation--opened')) {
+        toggle.classList.remove('rotate-left');
+        toggle.classList.add('rotate-right');
+        setTimeout(function () {
+          menu.classList.remove('navigation--opened');
+          menu.classList.add('navigation--closed');
+        }, 350);
+      } else if (menu.classList.contains('navigation--closed')) {
+        menu.classList.remove('navigation--closed');
+        menu.classList.add('navigation--opened');
+        toggle.classList.remove('rotate-right');
+        toggle.classList.add('rotate-left');
+        menuList.classList.remove('slide-right');
+        menuList.classList.add('slide-left');
+      }
     }
   });
   menuItems.forEach(function (item) {
@@ -4973,14 +4973,22 @@ var scroll = function scroll() {
   };
 
   var setScroll = function setScroll(triggerSelector) {
-    var triggers = document.querySelectorAll(triggerSelector);
+    var triggers = document.querySelectorAll(triggerSelector),
+        timeout = 400;
     triggers.forEach(function (item) {
       item.addEventListener('click', function (e) {
         e.preventDefault();
+
+        if (document.body.offsetWidth >= 960) {
+          timeout = 0;
+        } else {
+          timeout = 400;
+        }
+
         var element = document.querySelector(".".concat(item.getAttribute('data-scrollid')));
         setTimeout(function () {
           scrollTo(element);
-        }, 400);
+        }, timeout);
       });
     });
   };
@@ -5011,15 +5019,17 @@ __webpack_require__.r(__webpack_exports__);
 var slider = function slider() {
   var setSlider = function setSlider(slides, slider, prev, next) {
     var sliderBlock = document.querySelector(slider),
-        slideList = document.querySelectorAll(slides);
+        slideList = document.querySelectorAll(slides),
+        infoButtons = document.querySelectorAll('.services__more');
     var slideIndex = 0;
 
     function showSlide(n) {
       slideList.forEach(function (item, i) {
-        item.style.display = 'none';
+        item.classList.add('slider__slide--hide');
         item.classList.add('fadeIn');
       });
-      slideList[n].style.display = 'flex';
+      slideList[n].classList.remove('slider__slide--hide');
+      slideList[n].classList.add('slider__slide--show');
     }
 
     function nextSlide(n) {
@@ -5037,6 +5047,12 @@ var slider = function slider() {
     }
 
     showSlide(slideIndex);
+    infoButtons.forEach(function (button, i) {
+      button.addEventListener('click', function () {
+        slideIndex = i;
+        showSlide(slideIndex);
+      });
+    });
 
     try {
       var prevBtn = document.querySelector(prev),
@@ -5046,6 +5062,15 @@ var slider = function slider() {
       });
       nextBtn.addEventListener('click', function () {
         nextSlide(1);
+      });
+      sliderBlock.addEventListener('touchstart', function (e) {
+        if (e.targetTouches[0].screenX < sliderBlock.offsetWidth * 0.15) {
+          nextSlide(-1);
+        }
+
+        if (e.targetTouches[0].screenX > sliderBlock.offsetWidth * 0.85) {
+          nextSlide(1);
+        }
       });
     } catch (e) {}
   };
