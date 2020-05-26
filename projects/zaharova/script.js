@@ -4875,6 +4875,8 @@ var menu = function menu() {
       if (menu.classList.contains('navigation--opened')) {
         toggle.classList.remove('rotate-left');
         toggle.classList.add('rotate-right');
+        menuList.classList.remove('slide-left');
+        menuList.classList.add('fadeOut');
         setTimeout(function () {
           menu.classList.remove('navigation--opened');
           menu.classList.add('navigation--closed');
@@ -4884,7 +4886,7 @@ var menu = function menu() {
         menu.classList.add('navigation--opened');
         toggle.classList.remove('rotate-right');
         toggle.classList.add('rotate-left');
-        menuList.classList.remove('slide-right');
+        menuList.classList.remove('fadeOut');
         menuList.classList.add('slide-left');
       }
     }
@@ -5064,11 +5066,11 @@ var slider = function slider() {
         nextSlide(1);
       });
       sliderBlock.addEventListener('touchstart', function (e) {
-        if (e.targetTouches[0].screenX < sliderBlock.offsetWidth * 0.15) {
+        if (e.targetTouches[0].screenX < sliderBlock.offsetWidth * 0.1) {
           nextSlide(-1);
         }
 
-        if (e.targetTouches[0].screenX > sliderBlock.offsetWidth * 0.85) {
+        if (e.targetTouches[0].screenX > sliderBlock.offsetWidth * 0.9) {
           nextSlide(1);
         }
       });

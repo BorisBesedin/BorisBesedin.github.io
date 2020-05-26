@@ -47,11 +47,11 @@ const slider = () => {
             });
 
             sliderBlock.addEventListener('touchstart', (e) => {
-                if (e.targetTouches[0].screenX < sliderBlock.offsetWidth * 0.15) {
+                if (e.targetTouches[0].screenX < sliderBlock.offsetWidth * 0.1) {
                     nextSlide(-1);
                 }
 
-                if (e.targetTouches[0].screenX > sliderBlock.offsetWidth * 0.85) {
+                if (e.targetTouches[0].screenX > sliderBlock.offsetWidth * 0.9) {
                     nextSlide(1);
                 }
             });
