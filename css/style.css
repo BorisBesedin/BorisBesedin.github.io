@@ -325,67 +325,97 @@ a {
 }
 
 .project_item {
+	position: relative;
 	list-style: none;
 	margin-bottom: 40px;
-}
-
-.project_link {
-	display: block;
-	position: relative;
-	border: 1px solid #999999;
-	border-radius: 20px;
 	overflow: hidden;
-	z-index: 1;
+	border-radius: 20px;
 }
 
-.project_link img {
+.project_text {
+	width: 100%;
+}
+
+.project_description {
+	box-sizing: border-box;
+	height: 100%;
+	width: 100%;
+
+	padding-left: 10px;
+	padding-right: 10px;
+
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+
+	background-color: rgba(0, 0, 0, 0.9);
+	color: #ffffff;
+}
+
+.project_buttons {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	width: 100%;
+	border-radius: 0 0 10px 10px;
+}
+
+.project_button {
+	display: block;
+	width: 50px;
+	height: 50px;
+	background: #ffffff;
+	border: 2px solid #000000;
+	border-radius: 10px;
+	
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.project_button:hover {
+	box-shadow: 0 0 6px 0 #ffffff;
+	transition: 0.3s;
+}
+
+.project_button:active {
+	opacity: 0.6;
+}
+
+.project_button:first-child {
+	background-image: url("../img/world.png");
+	background-size: 80%;
+	margin-right: 10px;
+}
+
+.project_button:last-child {
+	background-image: url("../img/icons8-github-50.png");
+	background-size: 90%;
+}
+
+.project_item img {
 	display: block;
 	max-width: 100%;
-	transition: transform 0.3s ease;
 }
 
-.project_link:hover img {
-	transform: translateX(100%);
+@keyframes fade {
+	from {
+		opacity: 0.1;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
-.project_link::after,
-.project_link::before {
-	position: absolute;
-	left: 0;
-  	z-index: -1;
-  	box-sizing: border-box;
-  	width: 100%;
-  	background-color: #333333;
-  	text-align: center;
-  	transition: transform 0.3s ease-in-out;
-  	transform: translateX(-80px);
-}
-
-.project_link::after {
-	top: 0;
-	padding: 30px;
-	height: 30%;
-	color: #ffffff;
-	content: attr(data-title);
-	font-weight: bold;
-	font-size: 22px;
-}
-
-.project_link::before {
-	bottom: 0;
-	padding: 30px;
-	height: 70%;
-	color: #ffffff;
-	content: attr(data-description);
-	font-weight: normal;
-	font-size: 14px;
-	line-height: 18px;
-	text-transform: none;
-}
-
-.project_link:hover::before,
-.project_link:hover::after {
-  	transform: translateX(0);
+.project_item:hover .project_description {
+	display: flex;
+	animation: fade 0.3s;
 }
 
 .contacts {
