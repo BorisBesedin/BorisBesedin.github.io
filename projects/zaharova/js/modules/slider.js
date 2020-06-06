@@ -47,7 +47,7 @@ const slider = () => {
             });
 
             sliderBlock.addEventListener('touchstart', (e) => {
-                if (e.targetTouches[0].screenX < sliderBlock.offsetWidth * 0.1) {
+                if (e.targetTouches[0].screenX < sliderBlock.offsetWidth * 0.3) {
                     nextSlide(-1);
                 }
 

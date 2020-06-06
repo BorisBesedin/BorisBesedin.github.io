@@ -5066,7 +5066,7 @@ var slider = function slider() {
         nextSlide(1);
       });
       sliderBlock.addEventListener('touchstart', function (e) {
-        if (e.targetTouches[0].screenX < sliderBlock.offsetWidth * 0.1) {
+        if (e.targetTouches[0].screenX < sliderBlock.offsetWidth * 0.3) {
           nextSlide(-1);
         }
 
