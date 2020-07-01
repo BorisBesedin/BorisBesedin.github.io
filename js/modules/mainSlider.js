@@ -4,7 +4,8 @@ const mainSlider = () => {
               slideList = document.querySelectorAll(slides),
               prevBtn = document.querySelector(prev),
               nextBtn = document.querySelector(next),
-              menuBtns = document.querySelectorAll('.menu__link');
+              menuBtns = document.querySelectorAll('.menu__link'),
+              touchBorder = 140;
         let slideIndex = 0;
 
         function setProgress(n) {
@@ -58,6 +59,45 @@ const mainSlider = () => {
                 document.querySelector('.menu__list').classList.remove('menu__list--opened');
                 document.querySelector('.menu__toggle').classList.remove('menu__toggle--active');
             });
+        });
+
+        // for mobile's touch events
+
+        sliderBlock.addEventListener('touchstart', function(evt) {
+            let startCoords = evt.targetTouches[0].clientX;
+          
+            function onTouchMove(moveEvt) {
+                let slide = sliderBlock.querySelector('.main-slider__slide--active'),
+                    shift = startCoords - moveEvt.targetTouches[0].clientX;
+    
+                slide.classList.add('main-slider__slide--touch');
+                startCoords = moveEvt.targetTouches[0].clientX;
+                slide.style.left = (slide.offsetLeft - shift) + 'px';
+                
+    
+                if (slide.offsetLeft < -touchBorder && slideIndex < slideList.length - 1) {
+                    nextSlide(1);            
+                    onTouchEnd();
+                }
+    
+                if (slide.offsetLeft > touchBorder && slideIndex > 0) {
+                    nextSlide(-1);            
+                    onTouchEnd();
+                }
+            }
+    
+            function onTouchEnd(upEvt) {  
+                let slide = sliderBlock.querySelector('.main-slider__slide--active'); 
+    
+                document.removeEventListener('touchmove', onTouchMove);
+                document.removeEventListener('touchend', onTouchEnd);
+    
+                slide.style.left = 0 + 'px';
+                slide.classList.remove('main-slider__slide--touch');
+            }
+    
+            document.addEventListener('touchmove', onTouchMove);
+            document.addEventListener('touchend', onTouchEnd);
         });
     };
 

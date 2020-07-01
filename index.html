@@ -9,9 +9,7 @@
 </head>
 <body>
     <div style="display: none">
-        <svg xmlns="http://www.w3.org/2000/svg">
-    
-</svg>
+        <include src="build/img/sprite.svg"></include>
     </div>
     
     <div class="app">
@@ -27,16 +25,16 @@
                     <button class="menu__toggle"></button>
                     <ul class="menu__list">
                         <li class="menu__item">
-                            <a href="#" class="menu__link">О ком речь?</a>
+                            <a href="#" class="menu__link">About</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#" class="menu__link">Что умеет?</a>
+                            <a href="#" class="menu__link">Skills</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#" class="menu__link">Проекты</a>
+                            <a href="#" class="menu__link">Projects</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#" class="menu__link">Контакты</a>
+                            <a href="#" class="menu__link">Contacts</a>
                         </li>
                     </ul>
                 </div>                   
@@ -44,17 +42,17 @@
                 <ul class="menu-block__social social">
                     <li class="social__item">
                         <a href="https://vk.com/borisbesedin" class="social__link social__link--vk" target="_blank">
-                            <span class="visually-hidden">вконтакте</span>
+                            <span class="visually-hidden">vk</span>
                         </a>
                     </li>
                     <li class="social__item">
                         <a href="https://www.instagram.com/boris_besedin" class="social__link social__link--insta" target="_blank">
-                            <span class="visually-hidden">инстаграм</span>
+                            <span class="visually-hidden">instagram</span>
                         </a>
                     </li>
                     <li class="social__item">
                         <a href="https://github.com/BorisBesedin" class="social__link social__link--github" target="_blank">
-                            <span class="visually-hidden">гитхаб</span>
+                            <span class="visually-hidden">github</span>
                         </a>
                     </li>
                 </ul>
@@ -64,36 +62,35 @@
         <div class="app__main main-slider wrapper">
             <div class="main-slider__slides">
                 <div class="main-slider__slide about">
-                    <h2 class="visually-hidden">Обо мне</h2>
+                    <h2 class="visually-hidden">About</h2>
                     <div class="about__photo">
                         <img src="./img/photo.jpg" alt="это я">
                     </div>
                     <p class="about__text">
-                        Привет! Меня зовут Борис, я пытаюсь стать фронтенд-разработчиком,
-                        а это - мой небольшой сайт-портфолио. Мне 28 лет, но ведь никогда не поздно,
-                        правда?
+                        Hi! My name is Boris. I'm trying to become a front-end developer. This is my portfolio site.
                     </p>
                 </div>
 
                 <div class="main-slider__slide features">
-                    <h2 class="visually-hidden">Навыки</h2>
+                    <h2 class="visually-hidden">Skills</h2>
                     <ul class="features__list">
                         <li class="features__item">
                             <span class="features__img features__img--html"></span>
-                            <p class="features__text">Семантическая, адаптивная, кроссбраузерная верстка. <br>
-                                HTML5, CSS3, препроцессоры(Sass) - вот это вот всё.
+                            <p class="features__text">
+                                Semantic, adaptive, cross-browser layout. <br>
+                                HTML5, CSS3, preprocessors (Sass)
                             </p>
                         </li>
 
                         <li class="features__item">
                             <span class="features__img features__img--js"></span>
-                            <p class="features__text">JavaScript, ES5/ES6. <br> Планирую дальше вникать в React.
+                            <p class="features__text">JavaScript, ES5/ES6.
                             </p>
                         </li>
 
                         <li class="features__item">
                             <span class="features__img features__img--other"></span>
-                            <p class="features__text">Ну и сопутствующее: <br> npm, git, gulp.
+                            <p class="features__text">Working with <br> npm, git, gulp.
                             </p>
                         </li>
                     </ul>
@@ -108,7 +105,7 @@
                                 <img src="./img/gomoku.jpg" alt="">
                             </a>
                             <div class="projects__container">
-                                <p class="projects__description">Игра "крестики-нолики", 5 в ряд.</p>
+                                <p class="projects__description">"Gomoku", 5 in row. Native JavaScript ES6.</p>
                                 <div class="projects__buttons">
                                     <a href="projects/gomoku/index.html" class="projects__button" target="_blank">Открыть</a>
                                     <a href="https://github.com/BorisBesedin/gomoku-app" class="projects__button" target="_blank">GitHub</a>
@@ -121,7 +118,7 @@
                                 <img src="./img/snake.jpg" alt="">
                             </a>
                             <div class="projects__container">
-                                <p class="projects__description">Игра "змейка"</p>
+                                <p class="projects__description">The game "Snake"</p>
                                 <div class="projects__buttons">
                                     <a href="projects/snake/index.html" class="projects__button" target="_blank">Открыть</a>
                                     <a href="https://github.com/BorisBesedin/Snake" class="projects__button" target="_blank">GitHub</a>
@@ -135,8 +132,7 @@
                             </a>
                             <div class="projects__container">
                                 <p class="projects__description">
-                                    Приложение, показывающее погоду сейчас.
-                                    Работа с Dark Sky API и Яндекс Геолокатор
+                                    Weather App. Native JS, working with Dark Sky API and Yandex Geolocator                                    
                                 </p>
                                 <div class="projects__buttons">
                                     <a href="projects/weather-app/index.html" class="projects__button" target="_blank">Открыть</a>
@@ -151,7 +147,7 @@
                             </a>
                             <div class="projects__container">
                                 <p class="projects__description">
-                                    Сервис для аренды жилья в Токио.
+                                    Site for rental service in Tokyo. Native JavaScript ES5.
                                 </p>
                                 <div class="projects__buttons">
                                     <a href="projects/keksobooking/index.html" class="projects__button" target="_blank">Открыть</a>
@@ -166,7 +162,7 @@
                             </a>
                             <div class="projects__container">
                                 <p class="projects__description">
-                                    Верстка адаптивного макета. Используется Sass. Сборка в Gulp.
+                                    Adptive layout. HTML, CSS(Sass), Gulp.
                                 </p>
                                 <div class="projects__buttons">
                                     <a href="projects/parrot/index.html" class="projects__button" target="_blank">Открыть</a>
@@ -178,13 +174,15 @@
                 </div>
 
                 <div class="main-slider__slide contacts">
-                    <h2 class="visually-hidden">Контакты</h2>
+                    <h2 class="visually-hidden">Contacts</h2>
+                    <p class="contacts__email">Krutciatus@gmail.com</p>
                     <a href="tel:+79132837072" class="contacts__phone">+7 (913) 283 70 72</a>
+                    
                     <div class="contacts__messengers">
                         <a href="tg://resolve?domain=@Boris_Besedin" class="contacts__messenger contacts__messenger--tg">
                             <span class="visually-hidden">Telegram</span>
                         </a>
-                        <a href="" https:="" wa.me="" 79132837072""="" class="contacts__messenger contacts__messenger--whatsapp">
+                        <a href=""https://wa.me/79132837072"" class="contacts__messenger contacts__messenger--whatsapp">
                             <span class="visually-hidden">WhatsApp</span>
                         </a>
                     </div>
