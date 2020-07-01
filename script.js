@@ -1702,9 +1702,9 @@ var mainSlider = function mainSlider() {
         var slide = sliderBlock.querySelector('.main-slider__slide--active');
         document.removeEventListener('touchmove', onTouchMove);
         document.removeEventListener('touchend', onTouchEnd);
-        slide.style.left = 0 + 'px';
         slideList.forEach(function (item) {
-          return item.classList.remove('main-slider__slide--touch');
+          item.style.left = 0 + 'px';
+          item.classList.remove('main-slider__slide--touch');
         });
       }
 

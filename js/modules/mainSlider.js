@@ -92,8 +92,11 @@ const mainSlider = () => {
                 document.removeEventListener('touchmove', onTouchMove);
                 document.removeEventListener('touchend', onTouchEnd);
     
-                slide.style.left = 0 + 'px';
-                slideList.forEach(item => item.classList.remove('main-slider__slide--touch'));
+                
+                slideList.forEach(item => {
+                    item.style.left = 0 + 'px';
+                    item.classList.remove('main-slider__slide--touch');                    
+                });
             }
     
             document.addEventListener('touchmove', onTouchMove);
