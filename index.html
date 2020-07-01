@@ -1,169 +1,203 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-
-	<title>Портфолио</title>
-	<link rel="stylesheet" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boris Besedin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-	<section class="about container">
-		<div class="image_container">
-			<img class="photo" src="img/photo.jpg" alt="Это Борис">
-			<ul class="social">
-				<li><a class="social_button vk_button" href="https://vk.com/borisbesedin" target="_blank"></a></li>
-				<li><a class="social_button git_button" href="https://github.com/BorisBesedin" target="_blank"></a></li>
-			</ul>
-		</div>
-		<div class="about_info">			
-			<h1>Борис Беседин</h1>
-			<p>Хочет быть фронтендером, когда вырастет</p>
-			<ul class="tech_list">
-				<li class="tech_item item-html"></li>
-				<li class="tech_item item-css"></li>
-				<li class="tech_item item-js"></li>
-				<li class="tech_item item-sass"></li>
-				<li class="tech_item item-gulp"></li>
-				<li class="tech_item item-git"></li>
-			</ul>			
-		</div>
-		<button class="portfolio_button">смотреть работы</button>
-	</section>
+    <div style="display: none">
+        <svg xmlns="http://www.w3.org/2000/svg">
+    
+</svg>
+    </div>
+    
+    <div class="app">
+        <header class="app__header page-header">
+            <div class="page-header__progress progress">
+                <span class="progress__item progress__item--active"></span>
+                <span class="progress__item"></span>
+                <span class="progress__item"></span>
+                <span class="progress__item"></span>
+            </div>
+            <div class="page-header__content menu-block wrapper">
+                <div class="menu-block__menu menu">
+                    <button class="menu__toggle"></button>
+                    <ul class="menu__list">
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">О ком речь?</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">Что умеет?</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">Проекты</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">Контакты</a>
+                        </li>
+                    </ul>
+                </div>                   
 
-	<section class="experience">
-		<div class="container">
-			<h2 class="section_title">Что он умеет?</h2>
-			<ul class="experience_list">
-				<li class="experience_item">Прошел специализированные курсы по вёрстке и JavaScript в <a href="https://htmlacademy.ru/" class="htmlacademy_link">HTML-академии</a></li>
-				<li class="experience_item">Научился хорошей семантической/адаптивной/кроссбраузерной вёрстке. <br> Диватоз - отстой, Internet Explorer - тоже, но о нем нужно помнить</li>
-				<li class="experience_item">Может работать с препроцессорами(Sass), настраивать сборку (Gulp)</li>
-				<li class="experience_item">Знает JavaScript (ES5, ES6)</li>
-				<li class="experience_item">Умеет пользоваться git'ом</li>
-				<li class="experience_item">Варит вкусное пиво</li>				
-			</ul>
-			<button class="certificate_btn">Показать сертификаты</button>
-			<ul class="certificate_list certificate_list--closed">
-				<li class="certificate_item"><a href="https://assets.htmlacademy.ru/certificates/intensive/89/150991.pdf?1547035823" target="_blank"><img src="img/cert-1.jpg" alt=""></a></li>
-				<li class="certificate_item"><a href="https://assets.htmlacademy.ru/certificates/intensive/113/150991.pdf?1563722992" target="_blank"><img src="img/cert-2.jpg" alt=""></a></li>
-				<li class="certificate_item"><a href="https://assets.htmlacademy.ru/certificates/intensive/121/150991.pdf?1571931740" target="_blank"><img src="img/cert-3.jpg" alt=""></a></li>
-			</ul>
-		</div>
-	</section>
+                <ul class="menu-block__social social">
+                    <li class="social__item">
+                        <a href="https://vk.com/borisbesedin" class="social__link social__link--vk" target="_blank">
+                            <span class="visually-hidden">вконтакте</span>
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a href="https://www.instagram.com/boris_besedin" class="social__link social__link--insta" target="_blank">
+                            <span class="visually-hidden">инстаграм</span>
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a href="https://github.com/BorisBesedin" class="social__link social__link--github" target="_blank">
+                            <span class="visually-hidden">гитхаб</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
 
-	<section class="portfolio" id="portfolio">
-		<div class="container">
-			<h2 class="section_title">Примеры работ</h2>
-			<ul class="project_list">
-				<li class="project_item">
-					<img src="img/gomoku.jpg" alt="gomoku">
-					<div class="project_description">
-						<h3 class="project_title">Gomoku</h3>
-						<p class="project_text">Игра 'Крестики-нолики'. Поле 15х15. 5 в ряд</p>
-						<div class="project_buttons">
-							<a href="projects/gomoku/index.html" class="site_link project_button" target="_blank"></a>
-							<a href="https://github.com/BorisBesedin/gomoku-app" class="github_link project_button" target="_blank"></a>
-						</div>
-					</div>					
-				</li>
+        <div class="app__main main-slider wrapper">
+            <div class="main-slider__slides">
+                <div class="main-slider__slide about">
+                    <h2 class="visually-hidden">Обо мне</h2>
+                    <div class="about__photo">
+                        <img src="./img/photo.jpg" alt="это я">
+                    </div>
+                    <p class="about__text">
+                        Привет! Меня зовут Борис, я пытаюсь стать фронтенд-разработчиком,
+                        а это - мой небольшой сайт-портфолио. Мне 28 лет, но ведь никогда не поздно,
+                        правда?
+                    </p>
+                </div>
 
-				<li class="project_item">
-					<img src="img/snake.jpg" alt="snake">
-					<div class="project_description">
-						<h3 class="project_title">Snake</h3>
-						<p class="project_text">Игра 'Змейка' на чистом JS</p>
-						<div class="project_buttons">
-							<a href="projects/snake/index.html" class="site_link project_button" target="_blank"></a>
-							<a href="https://github.com/BorisBesedin/Snake" class="github_link project_button" target="_blank"></a>
-						</div>
-					</div>						
-				</li>
+                <div class="main-slider__slide features">
+                    <h2 class="visually-hidden">Навыки</h2>
+                    <ul class="features__list">
+                        <li class="features__item">
+                            <span class="features__img features__img--html"></span>
+                            <p class="features__text">Семантическая, адаптивная, кроссбраузерная верстка. <br>
+                                HTML5, CSS3, препроцессоры(Sass) - вот это вот всё.
+                            </p>
+                        </li>
 
-				<li class="project_item">
-					<img src="img/weather-app.JPG" alt="weather-app">
-					<div class="project_description">
-						<h3 class="project_title">Weather-app</h3>
-						<p class="project_text">Приложение, показывающее погоду в данный момент времени. Чистый JS (es6), работа с Dark Sky API и Яндекс Геолокатор</p>
-						<div class="project_buttons">
-							<a href="projects/weather-app/index.html" class="site_link project_button" target="_blank"></a>
-							<a href="https://github.com/BorisBesedin/BorisBesedin.github.io/tree/master/projects/weather-app" target="_blank" class="site_link project_button"></a>
-						</div>
-					</div>						
-				</li>
+                        <li class="features__item">
+                            <span class="features__img features__img--js"></span>
+                            <p class="features__text">JavaScript, ES5/ES6. <br> Планирую дальше вникать в React.
+                            </p>
+                        </li>
 
-				<li class="project_item">
-					<img src="img/pink.JPG" alt="pink">
-					<div class="project_description">
-						<h3 class="project_title">Pink</h3>
-						<p class="project_text">Cайт мобильного приложения. Адаптивная верстка, использован препроцессор Sass, сборка в Gulp</p>
-						<div class="project_buttons">
-							<a href="projects/pink/index.html" class="site_link project_button" target="_blank"></a>
-							<a href="https://github.com/BorisBesedin/150991-pink-16" target="_blank" class="site_link project_button"></a>
-						</div>
-					</div>					
-				</li>
+                        <li class="features__item">
+                            <span class="features__img features__img--other"></span>
+                            <p class="features__text">Ну и сопутствующее: <br> npm, git, gulp.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
 
-				<li class="project_item">
-					<img src="img/parrot.JPG" alt="parrot">
-					<div class="project_description">
-						<h3 class="project_title">Parrot</h3>
-						<p class="project_text">Адаптивный макет, использован препроцессор Sass, сборка в Gulp</p>
-						<div class="project_buttons">
-							<a href="projects/parrot/index.html" class="site_link project_button" target="_blank"></a>
-							<a href="https://github.com/BorisBesedin/sharp-dev-test" target="_blank" class="site_link project_button"></a>
-						</div>
-					</div>				
-				</li>
+                <div class="main-slider__slide projects main-slider__slide--active">
+                    <h2 class="visually-hidden">Проекты</h2>
+                    <button class="projects__next"></button>
+                    <ul class="projects__list">
+                        <li class="projects__item projects__item--active">
+                            <a href="projects/gomoku/index.html" class="projects__img">
+                                <img src="./img/gomoku.jpg" alt="">
+                            </a>
+                            <div class="projects__container">
+                                <p class="projects__description">Игра "крестики-нолики", 5 в ряд.</p>
+                                <div class="projects__buttons">
+                                    <a href="projects/gomoku/index.html" class="projects__button" target="_blank">Открыть</a>
+                                    <a href="https://github.com/BorisBesedin/gomoku-app" class="projects__button" target="_blank">GitHub</a>
+                                </div>
+                            </div>                            
+                        </li>
 
-				<li class="project_item">
-					<img src="img/keksobooking.JPG" alt="keksobooking">
-					<div class="project_description">
-						<h3 class="project_title">Keksobooking</h3>
-						<p class="project_text">Сервис размещения объявлений об аренде недвижимости в Токио</p>
-						<div class="project_buttons">
-							<a href="projects/keksobooking/index.html" class="site_link project_button" target="_blank"></a>
-							<a href="https://github.com/BorisBesedin/150991-keksobooking-18" target="_blank" class="site_link project_button"></a>
-						</div>
-					</div>				
-				</li>	
+                        <li class="projects__item">
+                            <a href="projects/snake/index.html" class="projects__img">
+                                <img src="./img/snake.jpg" alt="">
+                            </a>
+                            <div class="projects__container">
+                                <p class="projects__description">Игра "змейка"</p>
+                                <div class="projects__buttons">
+                                    <a href="projects/snake/index.html" class="projects__button" target="_blank">Открыть</a>
+                                    <a href="https://github.com/BorisBesedin/Snake" class="projects__button" target="_blank">GitHub</a>
+                                </div>
+                            </div>                            
+                        </li>
 
-				<li class="project_item">
-					<img src="img/astronomy.JPG" alt="astronomy">
-					<div class="project_description">
-						<h3 class="project_title">Тест</h3>
-						<p class="project_text">Тест по астрономии из 10 вопросов. Вопросы случайным образом рендерятся из данных в JSON-файле</p>
-						<div class="project_buttons">
-							<a href="projects/astronomy/index.html" class="site_link project_button" target="_blank"></a>
-							<a href="https://github.com/BorisBesedin/astronomy-test" target="_blank" class="site_link project_button"></a>
-						</div>
-					</div>				
-				</li>	
+                        <li class="projects__item">
+                            <a href="projects/weather-app/index.html" class="projects__img">
+                                <img src="./img/weather-app.JPG" alt="">
+                            </a>
+                            <div class="projects__container">
+                                <p class="projects__description">
+                                    Приложение, показывающее погоду сейчас.
+                                    Работа с Dark Sky API и Яндекс Геолокатор
+                                </p>
+                                <div class="projects__buttons">
+                                    <a href="projects/weather-app/index.html" class="projects__button" target="_blank">Открыть</a>
+                                    <a href="#" class="projects__button" target="_blank">GitHub</a>
+                                </div>
+                            </div>                            
+                        </li>
 
-				<li class="project_item">
-					<img src="img/technomart-index.jpg" alt="техномарт">
-					<div class="project_description">
-						<h3 class="project_title">Техномарт</h3>
-						<p class="project_text">Простой сайт строительного интернет-магазина</p>
-						<div class="project_buttons">
-							<a href="projects/technomart/index.html" class="site_link project_button" target="_blank"></a>
-							<a href="https://github.com/BorisBesedin/150991-technomart" target="_blank" class="site_link project_button"></a>
-						</div>
-					</div>				
-				</li>									
-			</ul>
-		</div>
-	</section>
-	<section class="contacts">
-		<div class="container">
-			<h2 class="section_title">Контакты</h2>
-			<p class="section_text">Если вдруг захотелось связаться с Борисом, то можно:</p>
-			<ul class="contacts_list">
-				<li class="contacts_item"><span>Написать в VK:</span> <a href="https://vk.com/borisbesedin">https://vk.com/borisbesedin</a></li>
-				<li class="contacts_item"><span>Написать в Telegram:</span> <a href="tg://resolve?domain=<@Boris_Besedin>">@Boris_Besedin</a></li>
-				<li class="contacts_item"><span>Написать на почту:</span> <a href="mailto:Krutciatus@gmail.com">Krutciatus@gmail.com</a></li>
-			</ul>
-		</div>
-	</section>
-	<script src="js/script.js"></script>
+                        <li class="projects__item">
+                            <a href="projects/keksobooking/index.html" class="projects__img">
+                                <img src="./img/keksobooking.JPG" alt="">
+                            </a>
+                            <div class="projects__container">
+                                <p class="projects__description">
+                                    Сервис для аренды жилья в Токио.
+                                </p>
+                                <div class="projects__buttons">
+                                    <a href="projects/keksobooking/index.html" class="projects__button" target="_blank">Открыть</a>
+                                    <a href="https://github.com/BorisBesedin/150991-keksobooking-18" class="projects__button" target="_blank">GitHub</a>
+                                </div>
+                            </div>                            
+                        </li>
+
+                        <li class="projects__item">
+                            <a href="projects/parrot/index.html" class="projects__img">
+                                <img src="./img/parrot.JPG" alt="">
+                            </a>
+                            <div class="projects__container">
+                                <p class="projects__description">
+                                    Верстка адаптивного макета. Используется Sass. Сборка в Gulp.
+                                </p>
+                                <div class="projects__buttons">
+                                    <a href="projects/parrot/index.html" class="projects__button" target="_blank">Открыть</a>
+                                    <a href="https://github.com/BorisBesedin/sharp-dev-test" class="projects__button" target="_blank">GitHub</a>
+                                </div>
+                            </div>                            
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="main-slider__slide contacts">
+                    <h2 class="visually-hidden">Контакты</h2>
+                    <a href="tel:+79132837072" class="contacts__phone">+7 (913) 283 70 72</a>
+                    <div class="contacts__messengers">
+                        <a href="tg://resolve?domain=@Boris_Besedin" class="contacts__messenger contacts__messenger--tg">
+                            <span class="visually-hidden">Telegram</span>
+                        </a>
+                        <a href="" https:="" wa.me="" 79132837072""="" class="contacts__messenger contacts__messenger--whatsapp">
+                            <span class="visually-hidden">WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="main-slider__controls">
+                <button class="main-slider__button main-slider__button--prev"></button>
+                <button class="main-slider__button main-slider__button--next"></button>                
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
