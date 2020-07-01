@@ -1703,7 +1703,9 @@ var mainSlider = function mainSlider() {
         document.removeEventListener('touchmove', onTouchMove);
         document.removeEventListener('touchend', onTouchEnd);
         slide.style.left = 0 + 'px';
-        slide.classList.remove('main-slider__slide--touch');
+        slideList.forEach(function (item) {
+          return item.classList.remove('main-slider__slide--touch');
+        });
       }
 
       document.addEventListener('touchmove', onTouchMove);
