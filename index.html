@@ -9,7 +9,9 @@
 </head>
 <body>
     <div style="display: none">
-        <include src="build/img/sprite.svg"></include>
+        <svg xmlns="http://www.w3.org/2000/svg">
+    
+</svg>
     </div>
     
     <div class="app">
@@ -67,7 +69,8 @@
                         <img src="./img/photo.jpg" alt="это я">
                     </div>
                     <p class="about__text">
-                        Hi! My name is Boris. I'm trying to become a front-end developer. This is my portfolio site.
+                        Hi! My name is Boris. I'm trying to become a front-end developer. 
+                        I've completed some special layout and JS courses. So, this is my portfolio site.
                     </p>
                 </div>
 
@@ -75,30 +78,43 @@
                     <h2 class="visually-hidden">Skills</h2>
                     <ul class="features__list">
                         <li class="features__item">
-                            <span class="features__img features__img--html"></span>
-                            <p class="features__text">
-                                Semantic, adaptive, cross-browser layout. <br>
-                                HTML5, CSS3, preprocessors (Sass)
-                            </p>
+                            <div class="features__container">
+                                <span class="features__img features__img--html"></span>
+                                <p class="features__text">
+                                    Semantic, adaptive, cross-browser layout. <br>
+                                    HTML5, CSS3, preprocessors (Sass)
+                                </p>
+                            </div>
+                            <a href="https://assets.htmlacademy.ru/certificates/intensive/113/150991.pdf" class="features__certificate">view certificate</a>
                         </li>
 
                         <li class="features__item">
-                            <span class="features__img features__img--js"></span>
-                            <p class="features__text">JavaScript, ES5/ES6.
-                            </p>
+                            <div class="features__container">
+                                <span class="features__img features__img--js"></span>
+                                <p class="features__text">JavaScript, ES5/ES6. <br>
+                                    Arrow functions, classes, modules, OOP
+                                </p>
+                            </div>
+                            <a href="https://assets.htmlacademy.ru/certificates/intensive/121/150991.pdf" class="features__certificate">view certificate</a>
                         </li>
 
                         <li class="features__item">
-                            <span class="features__img features__img--other"></span>
-                            <p class="features__text">Working with <br> npm, git, gulp.
-                            </p>
+                            <div class="features__container">
+                                <span class="features__img features__img--other"></span>
+                                <p class="features__text">Working with <br> npm, git, gulp.
+                                </p>
+                            </div>
                         </li>
                     </ul>
                 </div>
 
                 <div class="main-slider__slide projects main-slider__slide--active">
                     <h2 class="visually-hidden">Проекты</h2>
-                    <button class="projects__next"></button>
+                    <div class="projects__controls">
+                        <button class="projects__prev"></button>
+                        <button class="projects__next"></button>
+                    </div>
+                    
                     <ul class="projects__list">
                         <li class="projects__item projects__item--active">
                             <a href="projects/gomoku/index.html" class="projects__img">
@@ -107,7 +123,7 @@
                             <div class="projects__container">
                                 <p class="projects__description">"Gomoku", 5 in row. Native JavaScript ES6.</p>
                                 <div class="projects__buttons">
-                                    <a href="projects/gomoku/index.html" class="projects__button" target="_blank">Открыть</a>
+                                    <a href="projects/gomoku/index.html" class="projects__button" target="_blank">Open</a>
                                     <a href="https://github.com/BorisBesedin/gomoku-app" class="projects__button" target="_blank">GitHub</a>
                                 </div>
                             </div>                            
@@ -120,7 +136,7 @@
                             <div class="projects__container">
                                 <p class="projects__description">The game "Snake"</p>
                                 <div class="projects__buttons">
-                                    <a href="projects/snake/index.html" class="projects__button" target="_blank">Открыть</a>
+                                    <a href="projects/snake/index.html" class="projects__button" target="_blank">Open</a>
                                     <a href="https://github.com/BorisBesedin/Snake" class="projects__button" target="_blank">GitHub</a>
                                 </div>
                             </div>                            
@@ -135,7 +151,7 @@
                                     Weather App. Native JS, working with Dark Sky API and Yandex Geolocator                                    
                                 </p>
                                 <div class="projects__buttons">
-                                    <a href="projects/weather-app/index.html" class="projects__button" target="_blank">Открыть</a>
+                                    <a href="projects/weather-app/index.html" class="projects__button" target="_blank">Open</a>
                                     <a href="#" class="projects__button" target="_blank">GitHub</a>
                                 </div>
                             </div>                            
@@ -150,7 +166,7 @@
                                     Site for rental service in Tokyo. Native JavaScript ES5.
                                 </p>
                                 <div class="projects__buttons">
-                                    <a href="projects/keksobooking/index.html" class="projects__button" target="_blank">Открыть</a>
+                                    <a href="projects/Keksobooking/index.html" class="projects__button" target="_blank">Open</a>
                                     <a href="https://github.com/BorisBesedin/150991-keksobooking-18" class="projects__button" target="_blank">GitHub</a>
                                 </div>
                             </div>                            
@@ -162,11 +178,41 @@
                             </a>
                             <div class="projects__container">
                                 <p class="projects__description">
-                                    Adptive layout. HTML, CSS(Sass), Gulp.
+                                    Adaptive layout. HTML, CSS(Sass), Gulp.
                                 </p>
                                 <div class="projects__buttons">
-                                    <a href="projects/parrot/index.html" class="projects__button" target="_blank">Открыть</a>
+                                    <a href="projects/parrot/index.html" class="projects__button" target="_blank">Open</a>
                                     <a href="https://github.com/BorisBesedin/sharp-dev-test" class="projects__button" target="_blank">GitHub</a>
+                                </div>
+                            </div>                            
+                        </li>
+
+                        <li class="projects__item">
+                            <a href="projects/pink/index.html" class="projects__img">
+                                <img src="./img/pink.JPG" alt="">
+                            </a>
+                            <div class="projects__container">
+                                <p class="projects__description">
+                                    Adaptive layout. HTML, CSS(Sass), Gulp.
+                                </p>
+                                <div class="projects__buttons">
+                                    <a href="projects/parrot/index.html" class="projects__button" target="_blank">Open</a>
+                                    <a href="https://github.com/BorisBesedin/sharp-dev-test" class="projects__button" target="_blank">GitHub</a>
+                                </div>
+                            </div>                            
+                        </li>
+
+                        <li class="projects__item">
+                            <a href="projects/pink/index.html" class="projects__img">
+                                <img src="./img/pink.JPG" alt="">
+                            </a>
+                            <div class="projects__container">
+                                <p class="projects__description">
+                                    Adaptive layout. HTML, CSS(Sass), Gulp.
+                                </p>
+                                <div class="projects__buttons">
+                                    <a href="projects/parrot/index.html" class="projects__button" target="_blank">Open</a>
+                                    <a href="https://github.com/BorisBesedin/150991-pink-16" class="projects__button" target="_blank">GitHub</a>
                                 </div>
                             </div>                            
                         </li>
@@ -182,7 +228,7 @@
                         <a href="tg://resolve?domain=@Boris_Besedin" class="contacts__messenger contacts__messenger--tg">
                             <span class="visually-hidden">Telegram</span>
                         </a>
-                        <a href=""https://wa.me/79132837072"" class="contacts__messenger contacts__messenger--whatsapp">
+                        <a href="" https:="" wa.me="" 79132837072""="" class="contacts__messenger contacts__messenger--whatsapp">
                             <span class="visually-hidden">WhatsApp</span>
                         </a>
                     </div>

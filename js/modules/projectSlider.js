@@ -1,7 +1,8 @@
 const projectSlider = () => {
     const slider = document.querySelector('.projects__list'),
           slides = slider.children,
-          next = document.querySelector('.projects__next');
+          next = document.querySelector('.projects__next'),
+          prev = document.querySelector('.projects__prev');
 
     function setActive() {
         slides.forEach(item => {
@@ -15,8 +16,12 @@ const projectSlider = () => {
         setTimeout(() => {
             slider.appendChild(slides[0]);
             setActive();
-        }, 350);
-        
+        }, 350);        
+    });
+
+    prev.addEventListener('click', () => {
+        slider.insertBefore(slides[slides.length - 1], slides[0]);
+        setActive();
     });
 };
 

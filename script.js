@@ -1761,7 +1761,8 @@ __webpack_require__.r(__webpack_exports__);
 var projectSlider = function projectSlider() {
   var slider = document.querySelector('.projects__list'),
       slides = slider.children,
-      next = document.querySelector('.projects__next');
+      next = document.querySelector('.projects__next'),
+      prev = document.querySelector('.projects__prev');
 
   function setActive() {
     slides.forEach(function (item) {
@@ -1776,6 +1777,10 @@ var projectSlider = function projectSlider() {
       slider.appendChild(slides[0]);
       setActive();
     }, 350);
+  });
+  prev.addEventListener('click', function () {
+    slider.insertBefore(slides[slides.length - 1], slides[0]);
+    setActive();
   });
 };
 
