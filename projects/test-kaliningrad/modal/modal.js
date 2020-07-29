@@ -1,22 +1,27 @@
-function Modal(selector, message) {
-	const popup = document.querySelector(selector).cloneNode(true),
-		  close = popup.querySelector('.popup__close'),
-		  text = popup.querySelector('.popup__text'),
-		  overlay = document.createElement('div');
+class Modal {
+	constructor (selector, message) {
+		this.popup = document.querySelector(selector).cloneNode(true),
+		this.close = this.popup.querySelector('.popup__close'),
+		this.text = this.popup.querySelector('.popup__text'),
+		this.overlay = document.createElement('div')
+		this.message = message;
+	}
 
-	overlay.classList.add('overlay');
-	overlay.appendChild(popup)
-	document.body.appendChild(overlay);
+	init() {
+		this.overlay.classList.add('overlay');
+		this.overlay.appendChild(this.popup)
+		document.body.appendChild(this.overlay);
 
-	text.textContent = message;
+		this.text.textContent = this.message;
 
-	close.addEventListener('click', () => {
-		overlay.remove();
-	});
+		this.close.addEventListener('click', () => {
+			this.overlay.remove();
+		});
 
-	overlay.addEventListener('click', (e) => {
-		if (e.target !== popup && e.target.parentElement !== popup) {
-			overlay.remove();
-		}		
-	});
+		this.overlay.addEventListener('click', (e) => {
+			if (e.target !== this.popup && e.target.parentElement !== this.popup) {
+				this.overlay.remove();
+			}		
+		});
+	}
 }

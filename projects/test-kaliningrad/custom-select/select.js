@@ -1,70 +1,71 @@
-function Select(selector, elements, callback) {
-	const element = document.querySelector(selector),
-		  button = element.querySelector('button'),
-		  optionList = elements,
-		  list = element.querySelector('.select__list');
-
-	let isOpened = false;	
-
-	function open() {
-		list.style.display = 'block';
-		isOpened = true;
-		button.classList.add('select__button--opened');
+class CustomSelect {
+	constructor (selector, elements, callback) {
+		this.element = document.querySelector(selector),
+		this.button = this.element.querySelector('button'),
+		this.optionList = elements,
+		this.list = this.element.querySelector('.select__list'),
+		this.isOpened = false;
+		this.callback = callback;
 	}
 
-	function close() {
-		list.style.display = 'none';
-		isOpened = false;
-		button.classList.remove('select__button--opened');
+	open() {
+		this.list.style.display = 'block';
+		this.isOpened = true;
+		this.button.classList.add('select__button--opened');
 	}
 
-	function setItem(item) {
+	close() {
+		this.list.style.display = 'none';
+		this.isOpened = false;
+		this.button.classList.remove('select__button--opened');
+	}
+
+	setItem(item) {
 		let data = {
 			id: item.getAttribute('data-id'),
 			value: item.getAttribute('data-value')
 		}
-		button.textContent = item.getAttribute('data-value');
-		callback(data);
-		close();
+		this.button.textContent = item.getAttribute('data-value');
+		this.callback(data);
+		this.close();
 	}
 
-	function init() {
+	init() {
 		let items;
-		list.style.display = 'none';
 
-		optionList.forEach(elem => {
+		this.list.style.display = 'none';
+
+		this.optionList.forEach(elem => {
 			const item = document.createElement('li');
 
 			item.classList.add('select__item');
 			item.setAttribute('data-id', elem.id);
 			item.setAttribute('data-value', elem.value);
 			item.textContent = elem.value;
-			list.appendChild(item);
+			this.list.appendChild(item);
 		});
 
-		items = list.querySelectorAll('li');
+		items = this.list.querySelectorAll('li');
 
-		button.addEventListener('click', () => {
-			if (!isOpened) {				
-				open();
+		this.button.addEventListener('click', () => {
+			if (!this.isOpened) {				
+				this.open();
 			} else {				
-				close();
+				this.close();
 			}
 		});
 
 		document.addEventListener('click', (e) => {			
-			if (e.target.parentElement !== element
-				&& e.target.tagName !== 'LI' && isOpened) {
-				close();
+			if (e.target.parentElement !== this.element
+				&& e.target.tagName !== 'LI' && this.isOpened) {
+				this.close();
 			}
 		});
 
 		items.forEach(item => {
 			item.addEventListener('click', () => {
-				setItem(item);
+				this.setItem(item);
 			});
 		})
 	}
-
-	init();
 }

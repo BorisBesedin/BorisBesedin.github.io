@@ -14,15 +14,17 @@ const data = {
 	}
 	],
 	openPopup: function (data) {
-		console.log(data);
+		console.log('Selected', data);
 		let overlay = document.querySelector('.overlay');
 		if (overlay) {
 			overlay.remove();
 		}
-		const modal = new Modal('.text-popup', `Выбрано: ${data.value}`);		
+		const modal = new Modal('.text-popup', `Выбрано: ${data.value}`);
+		modal.init();	
 	}
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-	const frameworks = new Select('.select', data.optionList, data.openPopup);
+	const frameworks = new CustomSelect('.select', data.optionList, data.openPopup);
+	frameworks.init();
 });
