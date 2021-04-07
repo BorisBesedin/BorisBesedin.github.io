@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>LeasingCar</title>
+	<meta name="description" content="Авто в лизинг">	
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+	<header class="page-header wrapper">
+		<div class="page-hader__logo logo">
+			<a class="logo__name" href="#">
+				<span>Leasing</span>
+				<span>Car</span>
+			</a>			
+			<span class="logo__text">лизинговая компания</span>
+		</div>
+		<button class="menu__toggle"></button>
+		<div class="menu-overlay"></div>
+		<div class="page-header__menu menu">
+			<button class="menu__close"></button>	
+					
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a href="#" class="menu__link">Лизинг</a>
+					<ul class="menu__sub-menu">
+						<li class="menu__sub-item"><a href="#" class="menu__sub-link">Для личного пользования</a></li>
+						<li class="menu__sub-item"><a href="#" class="menu__sub-link">Для юридических лиц</a></li>
+						<li class="menu__sub-item"><a href="#" class="menu__sub-link">Калькулятор</a></li>
+					</ul>
+				</li>
+				<li class="menu__item"><a class="menu__link" href="#">Каталог</a></li>
+				<li class="menu__item"><a class="menu__link" href="#">О нас</a></li>
+			</ul>
+			<button class="menu__request button-white popup-btn">Оставить заявку</button>
+		</div>		
+	</header>
+
+	<main class="page-main">
+		<section class="slider slide-wrapper">
+			<div class="slider__controls">
+				<div class="slider__dots">
+					<span class="slider__dot slider__dot--active"></span>
+					<span class="slider__dot"></span>
+					<span class="slider__dot"></span>
+					<span class="slider__dot"></span>
+					<span class="slider__dot"></span>
+					<span class="slider__dot"></span>
+				</div>
+				<div class="slider__buttons">
+					<button class="slider__button slider__prev">
+						<span class="visually-hidden">Назад</span>
+					</button>
+					<button class="slider__button slider__next">
+						<span class="visually-hidden">Вперед</span>
+						<svg class="slider__btn-outline" width="48" height="48" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="26" cy="26" r="24" stroke="white" stroke-width="2"/>
+						</svg>
+						<svg class="slider__moving-outline" width="48" height="48" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="26" cy="26" r="24" fill="none" stroke="white" stroke-width="2"/>
+						</svg>
+					</button>
+				</div>
+			</div>
+			<ul class="slider__slides">
+				<li class="slider__slide">
+					<h1 class="slider__title">Авто в лизинг для физических лиц </h1>
+					<p class="slider__text">Получите машину за 5 дней</p>
+					<button class="slider__request button-orange popup-btn">Оставить заявку</button>
+				</li>
+
+				<li class="slider__slide">
+					<h2 class="slider__title">Авто в лизинг для юридических лиц </h2>
+					<p class="slider__text">Получите машину за 5 дней</p>
+					<button class="slider__request button-orange button-orange popup-btn" disabled>Оставить заявку</button>
+				</li>
+
+				<li class="slider__slide">
+					<h2 class="slider__title">Авто в лизинг для юридических лиц</h2>
+					<p class="slider__text">Получите долгов на 5 лет</p>
+					<button class="slider__request button-orange button-orange--loading popup-btn">Оставить заявку</button>
+				</li>
+
+				<li class="slider__slide">
+					<h2 class="slider__title">Авто в лизинг для физических лиц </h2>
+					<p class="slider__text">Получите машину за 5 дней</p>
+					<button class="slider__request button-orange popup-btn">Оставить заявку</button>
+				</li>
+
+				<li class="slider__slide">
+					<h2 class="slider__title">Авто в лизинг для юридических лиц </h2>
+					<p class="slider__text">Получите машину за 5 дней</p>
+					<button class="slider__request button-orange button-orange popup-btn" disabled>Оставить заявку</button>
+				</li>
+
+				<li class="slider__slide">
+					<h2 class="slider__title">Авто в лизинг для юридических лиц</h2>
+					<p class="slider__text">Получите долгов на 5 лет</p>
+					<button class="slider__request button-orange button-orange--loading popup-btn">Оставить заявку</button>
+				</li>
+			</ul>
+		</section>
+
+		<section class="calculator wrapper">
+			<h2 class="calculator__title">Рассчитайте стоимость автомобиля в лизинг</h2>
+			<form class="calculator__top calc-inputs">
+				<div class="calc-inputs__field">
+					<label for="price">Стоимость автомобиля</label>
+					<input id="price" type="number"  value="3300000">
+					<div class="calc-inputs__range">
+						<div class="calc-inputs__line">
+							<div class="calc-inputs__line-move price"></div>
+						</div>
+						<button type="button" class="calc-inputs__toggle price"></button>
+					</div>
+				</div>
+				<div class="calc-inputs__field">
+					<label for="procent">Первоначальный взнос</label>
+					<input class="calc-inputs__procent" id="procent" type="text" value="13" maxlength="2">
+					<span class="calc-inputs__procent-calc">0</span>
+					<div class="calc-inputs__range">
+						<div class="calc-inputs__line">
+							<div class="calc-inputs__line-move start-pay"></div>
+						</div>
+						<button type="button" class="calc-inputs__toggle start-pay"></button>
+					</div>
+				</div>
+				<div class="calc-inputs__field">
+					<label for="period">Срок лизинга</label>
+					<input id="period" type="number" value="60">
+					<div class="calc-inputs__range">
+						<div class="calc-inputs__line">
+							<div class="calc-inputs__line-move period"></div>
+						</div>
+						<button type="button" class="calc-inputs__toggle period"></button>
+					</div>
+				</div>
+			</form>
+			<div class="calculator__bottom calc-result">
+				<div class="calc-result__result">
+					<div class="calc-result__field">
+						<span>Сумма договора лизинга</span>
+						<span class="calc-result__sum">0</span>
+					</div>
+					<div class="calc-result__field">
+						<span>Ежемесячный платеж от</span>
+						<span class="calc-result__month-pay">0</span>
+					</div>
+				</div>
+				<button class="calc-result__button button-orange popup-btn">Оставить заявку</button>
+			</div>
+		</section>
+	</main>
+
+	<section class="popup">
+			<button class="popup__close"><span class="visually-hidden">Закрыть</span></button>
+			<div class="popup__container">
+				<h2 class="popup__title">Онлайн-заявка</h2>
+				<p class="popup__text">Заполните форму, и мы вскоре свяжемся с вами, чтобы ответить на все вопросы</p>
+				<form action="#" class="popup__form form">
+					<div class="form__fields">
+						<p class="form__field">
+							<label for="phone">Телефон</label>
+							<input id="phone" type="tel" placeholder="Телефон" required>
+							<span class="form__field-message"></span>
+						</p>
+						<p class="form__field">
+							<label for="name">Имя</label>
+							<input id="name" type="text" placeholder="Имя" required>
+							<span class="form__field-message"></span>
+						</p>
+					</div>
+
+					<div class="popup__submit">
+						<p class="popup__agreement">Нажимая на кнопку «Оставить заявку»,  я даю согласие <a href="#">на обработку персональных данных</a></p>
+						<button type="submit" class="popup__btn button-orange">Оставить заявку</button>
+					</div>
+				</form>
+				
+				<ul class="popup__messengers">
+					<li class="popup__messenger-item">
+						<a class="popup__messenger-link" href="#"><span class="visually-hidden">whatsapp</span></a>
+					</li>
+					<li class="popup__messenger-item">
+						<a class="popup__messenger-link" href="#"><span class="visually-hidden">telegram</span></a>
+					</li>
+				</ul>
+			</div>
+	</section>
+
+	<div class="overlay"></div>
+
+	<script src="script.js"></script>
+</body>
+</html>
