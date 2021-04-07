@@ -4581,7 +4581,8 @@ var slider = function slider() {
         dots = document.querySelectorAll(dotsSelector),
         prevBtn = document.querySelector(prev),
         nextBtn = document.querySelector(next),
-        timeOut = 10000;
+        timeOut = 10000,
+        touchBorder = 160;
     var slideIndex = 0;
 
     function showSlide(n) {
@@ -4633,6 +4634,39 @@ var slider = function slider() {
     });
     showSlide(slideIndex);
     setAutoChange();
+    sliderBlock.addEventListener('touchstart', function (evt) {
+      var startCoords = evt.targetTouches[0].clientX;
+
+      function onTouchMove(moveEvt) {
+        var slide = sliderBlock.querySelector('.slider__slide--show'),
+            shift = startCoords - moveEvt.targetTouches[0].clientX;
+        slide.classList.add('slider__slide--touch');
+        startCoords = moveEvt.targetTouches[0].clientX;
+        slide.style.left = slide.offsetLeft - shift + 'px';
+
+        if (slide.offsetLeft < -touchBorder) {
+          nextSlide(1);
+          onTouchEnd();
+        }
+
+        if (slide.offsetLeft > touchBorder) {
+          nextSlide(-1);
+          onTouchEnd();
+        }
+      }
+
+      function onTouchEnd(upEvt) {
+        document.removeEventListener('touchmove', onTouchMove);
+        document.removeEventListener('touchend', onTouchEnd);
+        slideList.forEach(function (item) {
+          item.style.left = 0 + 'px';
+          item.classList.remove('main-slider__slide--touch');
+        });
+      }
+
+      document.addEventListener('touchmove', onTouchMove);
+      document.addEventListener('touchend', onTouchEnd);
+    });
   };
 
   setSlider('.slider__slide', '.slider__slides', '.slider__prev', '.slider__next', '.slider__dot');
