@@ -8,14 +8,13 @@ const range = (inputSelector, lineSelector, toggleSelector, min, max) => {
     const dropToggle = function (toggle, evt) {
         evt.preventDefault();
 
-        let startX = evt.clientX;
+        let startX = evt.type === 'touchstart' ? evt.targetTouches[0].clientX : evt.clientX;
 
         let onMouseMove = function (moveEvt) {
             moveEvt.preventDefault();
 
-            let shift = startX - moveEvt.clientX;
-
-            startX = moveEvt.clientX;
+            let shift = evt.type === 'touchstart' ? startX - moveEvt.targetTouches[0].clientX : startX - moveEvt.clientX;
+            startX = evt.type === 'touchstart' ? moveEvt.targetTouches[0].clientX : moveEvt.clientX;
 
             setLine()
 
@@ -40,9 +39,15 @@ const range = (inputSelector, lineSelector, toggleSelector, min, max) => {
 
             document.removeEventListener('mousemove', onMouseMove);
             document.removeEventListener('mouseup', onMouseUp);
+
+            document.removeEventListener('touchmove', onMouseMove);
+            document.removeEventListener('touchend', onMouseUp);
         };
         document.addEventListener('mousemove', onMouseMove);
         document.addEventListener('mouseup', onMouseUp);
+
+        document.addEventListener('touchmove', onMouseMove);
+        document.addEventListener('touchend', onMouseUp);
     }
 
     function setToggle() {
@@ -55,6 +60,10 @@ const range = (inputSelector, lineSelector, toggleSelector, min, max) => {
     }
 
     toggleBtn.addEventListener('mousedown', function (evt) {
+        dropToggle(toggleBtn, evt);
+    });
+
+    toggleBtn.addEventListener('touchstart', function (evt) {
         dropToggle(toggleBtn, evt);
     });
 
